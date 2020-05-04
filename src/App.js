@@ -5,7 +5,7 @@ import Home from './page/Home'
 function App() {
   return (
     <div>
-      <Home/>
+      <Home></Home>
     </div>
   );
 }
