@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col, Button, Container} from 'reactstrap'
+import {Link} from 'react-router-dom'
 import About from './About'
 import Know from './Know'
 import Contact from './Contact'
@@ -21,7 +22,9 @@ const Content = () => {
                                     แบบประเมินนี้ใช้สำหรับการอบรมเท่านั้น ถ้าต้องการใช้ในงานวิจัยกรุณาติดต่อ {" "}
                                     <a href="/">ตามที่อยู่นี้</a>
                                 </p>
-                                <Button  color="primary">เริ่มต้นทำแบบทดสอบ</Button>
+                                <Link to="/ShowStudent">
+                                    <Button  color="primary">เริ่มต้นทำแบบทดสอบ</Button>
+                                </Link>
                             </div>
                         </Col>
                     </Row>

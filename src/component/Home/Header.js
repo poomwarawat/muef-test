@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 const Header = (props) => {    
     const {        
@@ -25,7 +26,9 @@ const Header = (props) => {
                 </label>
                 <label className="logo">MU.EF</label>
                 <ul>
-                    <li><p className="nav-text">Home</p></li>
+                    <Link to="/" style={{color:"white"}}>
+                        <li><p className="nav-text">Home</p></li>
+                    </Link>
                     <li><p className="nav-text">About</p></li>
                     <li><p className="nav-text">Contact</p></li>  
                     {key ? <Button onClick={handleLogout} color="danger">Logout</Button> : <li><Button outline color="light" onClick={toggle}>เข้าสู่ระบบ</Button>{" "}<Button color="light" onClick={toggle1}>สมัครสมาชิก</Button></li>}                    

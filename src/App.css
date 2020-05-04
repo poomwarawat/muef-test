@@ -156,7 +156,31 @@ nav ul li{
 .copy-right{
   text-align: center;
 }
+.Show-Student{
+  width: 100%;
+  height: 120vh;  
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
+}
+.testing-type{
+  color: white;
+  padding: 30px;
+  margin-left: 90px;
+}
+.testing-btn{
+  background: none;
+  border: none;
+  padding: 0;
+}
+.table-bg{
+  background-color: white;
+  overflow-y: auto;
+}
 @media (max-width: 858px){
+  .testing-type{
+    color: white;
+    padding: 30px;
+    margin-left: 10px;
+  }
   .div-center{
     text-align: center;
   }
