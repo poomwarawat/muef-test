@@ -11,11 +11,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 AOS.init()
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode></React.StrictMode>
     <Router>
       <App />
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 

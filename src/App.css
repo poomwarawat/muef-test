@@ -6,8 +6,16 @@
   list-style: none;
   text-decoration: none;
 }
+.logo-name{
+  color: white;
+}
+.logo-name:hover{
+  text-decoration: none;
+  color: white;
+}
 nav{
   color: white;
+  /* position: fixed; */
   /* text-shadow: 1px 1px 3px #333333; */
   height: 80px;
   width: 100%;
@@ -158,7 +166,8 @@ nav ul li{
 }
 .Show-Student{
   width: 100%;
-  height: 120vh;  
+  height: 100%;  
+  padding-bottom: 100px;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
 }
 .testing-type{
@@ -175,11 +184,54 @@ nav ul li{
   background-color: white;
   overflow-y: auto;
 }
+.back-menu{
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.back-menu > div {
+  padding: 5px;
+}
+.checklist-user{
+  position: absolute;
+  width: 100%;  
+  background-color: rgb(250, 250, 250);
+  color: #333333;
+  padding: 30px;    
+  padding-left: 90px;
+}
+.tutorial{
+  color: white;
+  padding: 30px;
+  margin-left: 90px;
+}
+.tutorial div span{
+  text-decoration: underline;
+  font-weight: 800;
+}
 @media (max-width: 858px){
+  .Show-Student{
+    width: 120%;
+    height: 100%;  
+    padding-bottom: 100px;
+    background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
+  }
   .testing-type{
     color: white;
     padding: 30px;
     margin-left: 10px;
+  }
+  .tutorial{
+    color: white;
+    padding: 30px;
+    margin-left: 10px;
+  }
+  .checklist-user{    
+    background-color: rgb(250, 250, 250);
+    color: #333333;
+    padding: 30px;
+    padding-left: 10px;
   }
   .div-center{
     text-align: center;
@@ -200,12 +252,14 @@ nav ul li{
     display: block;
     margin-right: 40px;
   }
-
+  nav{
+    position: relative;
+  }
   ul{
     color: white;    
     position: fixed;
     width: 100%;
-    height: 100vh;    
+    height: 120vh;    
     background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
     top: 80px;
     left: -100%;

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Container, Alert, Row, Col, Table} from 'reactstrap'
+import BacktoMenu from './BacktoMenu'
+import { Link } from 'react-router-dom'
 
 const ShowStudent = () => {
     return (
@@ -39,7 +41,9 @@ const ShowStudent = () => {
                         <td>1583305020994IHH</td>
                         <td>test test</td>
                         <td></td>
-                        <td>ผลประเมิน</td>
+                        <td>
+                            <Link>ผลประเมิน</Link>
+                        </td>
                         <td></td>
                     </tr> 
                     <tr>
@@ -47,12 +51,15 @@ const ShowStudent = () => {
                         <td>1584295754523mRn</td>
                         <td>test test</td>
                         <td></td>
-                        <td>ผลประเมิน</td>
+                        <td>
+                            <Link>ผลประเมิน</Link>
+                        </td>
                         <td></td>
                     </tr>                    
                 </tbody>
                 </Table>
                 </div>
+                <BacktoMenu/>
             </Container>
         </div>
     );
