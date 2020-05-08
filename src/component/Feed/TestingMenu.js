@@ -3,12 +3,12 @@ import Start101 from './MUEF101/Start101'
 import {Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
-const TestingMenu = (props) => {
+const TestingMenu = (props) => {    
     return (
         <div>
             {props.std && <h3>สวัสดีคุณ {props.username} ขณะนี้คุณกำลังทำแบบประเมินของ {props.std.fname} {props.std.lname} ชุดที่ {props.test}</h3>}            
             <div>
-                <Start101/>
+                {props.std && <Start101 std={props.std}/>}
                 <div className="mt-4">
                     <h3>คำชี้แจง</h3>
                     <p>เริ่มทำแบบประเมินจากหัวข้อแรก เมื่อทำหัวข้อแรกเสร็จจึงสามารถทำหัวข้อต่อไปได้</p>

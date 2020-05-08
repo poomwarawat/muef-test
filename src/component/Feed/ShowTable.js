@@ -19,8 +19,7 @@ const ShowTable = (props) => {
                     <th>หมายเหตุ*</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    {console.log(props.std)}                   
+                <tbody>                                      
                     {props.std.map((student, index) => {
                         return(
                             <tr key={index}>                                
@@ -28,7 +27,7 @@ const ShowTable = (props) => {
                                 <td>{student.codeId}</td>
                                 <td>{student.fname} {student.lname}</td>
                                 <td>
-                                    <Link to={`/MUEF-TEST-101/${student.codeId}`}>
+                                    <Link to={`/MUEF-TEST-${props.testCode}/${student.codeId}`}>
                                         <Button color="primary">ประเมิน</Button>
                                     </Link>
                                 </td>

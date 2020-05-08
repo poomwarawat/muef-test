@@ -234,6 +234,12 @@ nav ul li{
 .not-found-back:hover{
   color: #333333;
 }
+.INH-page{
+  width: 100%;
+  height: 100%;   
+  color: white;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
+}
 .start-testing{
   width: 100%;
   height: 100vh;   
@@ -242,6 +248,21 @@ nav ul li{
 }
 .test-page{
   padding: 50px;
+}
+.question-card{
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  color: #333333;
+  background-color: #eeeeee;
+}
+.toolip-question{
+  font-size: 16px;
+  color: #3f6d9b;
+  text-decoration: underline;
 }
 @media (max-width: 858px){
   .Show-Student{
