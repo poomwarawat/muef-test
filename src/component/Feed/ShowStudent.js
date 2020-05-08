@@ -1,7 +1,9 @@
 import React from 'react';
-import {Container, Alert, Row, Col, Table} from 'reactstrap'
+import {Container, Alert, Row, Col} from 'reactstrap'
 import BacktoMenu from './BacktoMenu'
-import { Link } from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
+import Table101 from './MUEF101/Table101'
+import Table102 from './MUEF102/Table102'
 
 const ShowStudent = () => {
     return (
@@ -10,55 +12,24 @@ const ShowStudent = () => {
                 <h1>ประเมินแบบทดสอบ</h1>
                 <Row>
                     <Col md="12" xs="12">
-                        <button className="testing-btn">
-                            <Alert color="primary">แบบประเมินพัฒนาการ MU.EF-101 (PRE-TEST)</Alert>
-                        </button>
+                        <Link to="/ShowStudent/MUEF101">
+                            <button className="testing-btn">
+                                <Alert color="primary">แบบประเมินพัฒนาการ MU.EF-101 (PRE-TEST)</Alert>
+                            </button>
+                        </Link>
                     </Col>
                 </Row>
                 <Row>
                     <Col md="12" xs="12">
-                        <button className="testing-btn">
-                            <Alert color="primary">แบบประเมินปัญหาพฤติกรรท MU.EF-102 (PRE-TEST)</Alert>
-                        </button>
-                    </Col>
+                        <Link to="/ShowStudent/MUEF102">
+                            <button className="testing-btn">
+                                <Alert color="primary">แบบประเมินปัญหาพฤติกรรท MU.EF-102 (PRE-TEST)</Alert>
+                            </button>
+                        </Link>
+                    </Col>                    
                 </Row>
-                <h1>รายชื่อนักเรียนที่กรอกข้อมูลแบบฟอร์ม MU.EF 101</h1>
-                <div className="table-bg">
-                <Table light>
-                <thead>
-                    <tr>
-                    <th>ลำดับ</th>
-                    <th>รหัสนักเรียน</th>
-                    <th>ชื่อ-นามสกุล</th>
-                    <th>แบบประเมิน</th>
-                    <th>ผลประเมิน</th>
-                    <th>หมายเหตุ*</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>1583305020994IHH</td>
-                        <td>test test</td>
-                        <td></td>
-                        <td>
-                            <Link>ผลประเมิน</Link>
-                        </td>
-                        <td></td>
-                    </tr> 
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>1584295754523mRn</td>
-                        <td>test test</td>
-                        <td></td>
-                        <td>
-                            <Link>ผลประเมิน</Link>
-                        </td>
-                        <td></td>
-                    </tr>                    
-                </tbody>
-                </Table>
-                </div>
+                <Route path="/ShowStudent/MUEF101" component={Table101} exact/>
+                <Route path="/ShowStudent/MUEF102" component={Table102}/>                
                 <BacktoMenu/>
             </Container>
         </div>

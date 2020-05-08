@@ -179,6 +179,8 @@ nav ul li{
   background: none;
   border: none;
   padding: 0;
+  height: 50px;  
+  margin-bottom: 10px;
 }
 .table-bg{
   background-color: white;
@@ -210,12 +212,46 @@ nav ul li{
   text-decoration: underline;
   font-weight: 800;
 }
+.not-found{
+  width: 100%;
+  height: 100vh;   
+  color: white;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
+}
+.not-found-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 70vh;
+}
+.not-found-back{
+  color: #333333;
+  text-decoration: underline;
+}
+.not-found-back:hover{
+  color: #333333;
+}
+.start-testing{
+  width: 100%;
+  height: 100vh;   
+  color: white;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
+}
+.test-page{
+  padding: 50px;
+}
 @media (max-width: 858px){
   .Show-Student{
     width: 120%;
     height: 100%;  
     padding-bottom: 100px;
     background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
+  }
+  .test-page{
+    padding: 10px;
   }
   .testing-type{
     color: white;
@@ -230,6 +266,7 @@ nav ul li{
   .checklist-user{    
     background-color: rgb(250, 250, 250);
     color: #333333;
+    width: 120%;
     padding: 30px;
     padding-left: 10px;
   }

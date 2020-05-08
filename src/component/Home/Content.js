@@ -22,7 +22,7 @@ const Content = () => {
                                     แบบประเมินนี้ใช้สำหรับการอบรมเท่านั้น ถ้าต้องการใช้ในงานวิจัยกรุณาติดต่อ {" "}
                                     <a href="/">ตามที่อยู่นี้</a>
                                 </p>
-                                <Link to="/ShowStudent">
+                                <Link to="/ShowStudent/MUEF101">
                                     <Button  color="primary">เริ่มต้นทำแบบทดสอบ</Button>
                                 </Link>
                             </div>

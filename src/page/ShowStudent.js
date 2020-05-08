@@ -9,7 +9,8 @@ const ShowStudent = () => {
     return (
         <div className="Show-Student">
             <Header/>            
-            <Route path="/ShowStudent" component={Showstudent} exact/>
+            <Route path="/ShowStudent/MUEF101" component={Showstudent} exact/>
+            <Route path="/ShowStudent/MUEF102" component={Showstudent} exact/>
             <Route path="/ShowStudent/tutorial" component={Tutorial}/>
             <Route path="/ShowStudent/Checklist" component={Checklist}/>
         </div>

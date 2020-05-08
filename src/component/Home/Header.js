@@ -11,6 +11,10 @@ let userInit = {
     repassword : ""
 }
 
+let loginInit = {
+    username : "",
+    password : ""
+}
 const Header = (props) => {    
     const {        
         className
@@ -19,6 +23,7 @@ const Header = (props) => {
     const [modal, setModal] = useState(false)
     const [modal1, setModal1] = useState(false)    
     const [user, setUser] = useState(userInit)
+    const [login, setLogin] = useState(loginInit)
     const [error, setError] = useState("")
 
     const handleLogout = () => {
@@ -51,7 +56,26 @@ const Header = (props) => {
             }            
         })
     }
-    
+    const handleChangeLogin = (e) => {
+        const value = e.target.value
+        const name = e.target.id
+        setLogin({...login, [name] : value})
+    }
+    const handleLogin = () => {        
+        const Data = new FormData()
+        Data.append("username", login.username)
+        Data.append("password", login.password)
+        API.post(`/auth-sign-in`, Data)
+        .then(res => {            
+            if(res.data.error){
+                setError(res.data.error)
+            }
+            if(res.data.user && res.data.access){                
+                localStorage.setItem("key", res.data.access)
+                window.location.reload()
+            }
+        })
+    }
     return (
         <div id="nav">            
             <nav>
@@ -76,17 +100,17 @@ const Header = (props) => {
                 <Modal isOpen={modal} toggle={toggle} className={className}>
                         <ModalHeader toggle={toggle}>เข้าสู่ระบบ</ModalHeader>
                         <ModalBody>
-                            <Form action="http://localhost:8080/auth-sign-in" method="POST">
+                            <Form>
                                 <FormGroup>
                                     <Label htmlFor="username">Username</Label>
-                                    <Input name="username" id="email" type="text" placeholder="กรุณาใส่ชื่อผู้ใช้งาน"/>
+                                    <Input onChange={handleChangeLogin} name="username" id="username" type="text" placeholder="กรุณาใส่ชื่อผู้ใช้งาน"/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label htmlFor="password">Password</Label>
-                                    <Input name="password" id="password" type="password" placeholder="กรุณาใส่พาสเวิร์ด"/>
+                                    <Input onChange={handleChangeLogin} name="password" id="password" type="password" placeholder="กรุณาใส่พาสเวิร์ด"/>
                                 </FormGroup>        
                                 {error && <Alert color="danger">{error}</Alert>  }                      
-                                <Button block color="primary" type="submit">Sign In</Button>
+                                <Button block color="primary" type="button" onClick={handleLogin}>Sign In</Button>
                             </Form>
                         </ModalBody>                    
                 </Modal> 

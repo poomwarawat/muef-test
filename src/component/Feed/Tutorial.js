@@ -21,7 +21,7 @@ const Tutorial = () => {
                 </div>
                 <div className="back-menu">
                     <div>
-                        <Link to="/ShowStudent">
+                        <Link to="/ShowStudent/MUEF101">
                             <Button color="light" outline>ย้อนกลับ</Button>
                         </Link>
                     </div>
