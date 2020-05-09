@@ -227,6 +227,15 @@ nav ul li{
   width: 100%;
   min-height: 70vh;
 }
+.spinner-space{  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 70vh;
+}
 .not-found-back{
   color: #333333;
   text-decoration: underline;
@@ -270,7 +279,7 @@ nav ul li{
     height: 100%;  
     padding-bottom: 100px;
     background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
-  }
+  }  
   .test-page{
     padding: 10px;
   }

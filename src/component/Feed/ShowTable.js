@@ -2,7 +2,6 @@ import React from 'react';
 import {Table, Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
-
 const ShowTable = (props) => {            
     return (
         <div>            

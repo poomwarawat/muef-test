@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import {Container} from 'reactstrap'
 import Header from '../component/Home/Header'
-import TestingMenu from '../component/Feed/TestingMenu'
+// import TestingMenu from '../component/Feed/TestingMenu'
 import API from '../API/API'
+import SpinComp from '../component/SpinComp'
+const TestingMenu = React.lazy(() => import('../component/Feed/TestingMenu'))
 
 const MenuTest = (props) => {
     const [user, setUser] = useState()
@@ -27,7 +29,9 @@ const MenuTest = (props) => {
             <Header/>
             <Container>
                 <div className="test-page">                                      
-                    <TestingMenu username={user} std={student[0]} test="101"/>
+                    <Suspense fallback={<SpinComp/>}>
+                        <TestingMenu username={user} std={student[0]} test="101"/>
+                    </Suspense>
                 </div>
             </Container>
         </div>

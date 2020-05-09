@@ -3,7 +3,6 @@ import Header from '../../Home/Header'
 import {Container} from 'reactstrap'
 import Question from './Question'
 import API from '../../../API/API'
-import LazyLoad from 'react-lazyload';
 
 const INH = () => {
     const [question, setQuestion] = useState([])
@@ -19,14 +18,12 @@ const INH = () => {
     return (
         <div className="INH-page">
             <Header/>
-            <Container>
-                <div className="test-page">
-                    <h1>แบบทดสอบพัฒนาการด้านยับยั้ง (INH)</h1>
-                    <h3>ในระยะ 3 เดือนที่ผ่านมาเด็กมีพฤติกรรมต่อไปนี้บ่อยแค่ไหน ให้เลือกตอบข้อที่ตรงกับความเป็นจริงมากที่สุด</h3>
-                    <LazyLoad height={1000}>
-                        <Question question={question}/>
-                    </LazyLoad>
-                </div>
+            <Container>            
+                    <div className="test-page">
+                        <h1>แบบทดสอบพัฒนาการด้านยับยั้ง (INH)</h1>                    
+                        <h3>ในระยะ 3 เดือนที่ผ่านมาเด็กมีพฤติกรรมต่อไปนี้บ่อยแค่ไหน ให้เลือกตอบข้อที่ตรงกับความเป็นจริงมากที่สุด</h3>                                            
+                            <Question question={question}/>                                                  
+                    </div>  
             </Container>
         </div>
     );
