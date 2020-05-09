@@ -94,7 +94,10 @@ const Header = (props) => {
                         <li><p className="nav-text">Home</p></li>
                     </Link>
                     <li><p className="nav-text">About</p></li>
-                    <li><p className="nav-text">Contact</p></li>  
+                    <li><p className="nav-text">Contact</p></li>
+                    <Link to="/Admin" style={{color:"white"}}>
+                        <li><p className="nav-text">Admin</p></li>  
+                    </Link>  
                     {key ? <Button onClick={handleLogout} color="danger">Logout</Button> : <li><Button outline color="light" onClick={toggle}>เข้าสู่ระบบ</Button>{" "}<Button color="light" onClick={toggle1}>สมัครสมาชิก</Button></li>}                    
                 </ul>
                 <Modal isOpen={modal} toggle={toggle} className={className}>

@@ -15,8 +15,8 @@ const TestingMenu = (props) => {
                 </div>
                 <div className="back-menu">
                     <div>
-                        <Link to="/">
-                            <Button color="light" outline>กลับสู่หน้าหลัก</Button>
+                        <Link to="/ShowStudent/MUEF101">
+                            <Button color="light" outline>ย้อนกลับ</Button>
                         </Link>
                     </div>
                     <div>

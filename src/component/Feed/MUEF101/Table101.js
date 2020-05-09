@@ -1,15 +1,6 @@
 import React, {useState, useEffect, Suspense} from 'react';
-// import ShowTable from '../ShowTable'
+import ShowTable from '../ShowTable'
 import API from '../../../API/API'
-import SpinComp from '../../SpinComp'
-const ShowTable = React.lazy(() => {
-    const x = new Promise((resolve) => {
-        setTimeout(() => {
-            return resolve(import('../ShowTable'))
-        }, 1500);
-    })
-    return x
-})
 
 const Table101 = () => {
     const [user, setUser] = useState("")  
@@ -32,10 +23,8 @@ const Table101 = () => {
 
     
     return (
-        <div>                     
-            <Suspense fallback={<SpinComp/>}>
-                {user && student && <ShowTable user={user} std={student} testCode={101}/>}            
-            </Suspense>   
+        <div>                                 
+            {user && student && <ShowTable user={user} std={student} testCode={101}/>}                        
         </div>
     );
 }

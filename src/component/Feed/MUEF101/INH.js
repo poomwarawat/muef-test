@@ -14,7 +14,7 @@ const INH = () => {
                 setQuestion(res.data)        
             }
         })
-    }, [])
+    }, [])    
     return (
         <div className="INH-page">
             <Header/>
@@ -22,7 +22,7 @@ const INH = () => {
                     <div className="test-page">
                         <h1>แบบทดสอบพัฒนาการด้านยับยั้ง (INH)</h1>                    
                         <h3>ในระยะ 3 เดือนที่ผ่านมาเด็กมีพฤติกรรมต่อไปนี้บ่อยแค่ไหน ให้เลือกตอบข้อที่ตรงกับความเป็นจริงมากที่สุด</h3>                                            
-                            <Question question={question}/>                                                  
+                            <Question question={question} mode="INH"/>                                                  
                     </div>  
             </Container>
         </div>

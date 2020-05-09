@@ -10,6 +10,7 @@ import SHF from './component/Feed/MUEF101/SHF'
 import EC from './component/Feed/MUEF101/EC'
 import WM from './component/Feed/MUEF101/WM'
 import PO from './component/Feed/MUEF101/PO'
+import Admin from './page/Admin'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/MUEF-TEST-101/:name/EC" component={EC}/>
         <Route path="/MUEF-TEST-101/:name/WM" component={WM}/>
         <Route path="/MUEF-TEST-101/:name/PO" component={PO}/>
+        <Route path="/Admin" component={Admin}/>
         <Route path='*' exact={true} component={NotFound} />
       </Switch>      
     </div>

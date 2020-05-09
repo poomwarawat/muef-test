@@ -24,7 +24,7 @@ const SHF = () => {
                     <h1>แบบทดสอบพัฒนาด้านการเปลี่ยน/ความยืดหยุ่นในการคิด (SHF)</h1>
                     <h3>ในระยะ 3 เดือนที่ผ่านมาเด็กมีพฤติกรรมต่อไปนี้บ่อยแค่ไหน ให้เลือกตอบข้อที่ตรงกับความเป็นจริงมากที่สุด</h3>
                     <LazyLoad height={1000}>
-                        <Question question={question}/>
+                        <Question question={question} mode="SHF"/>
                     </LazyLoad>
                 </div>
             </Container>
