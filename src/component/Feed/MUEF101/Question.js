@@ -69,9 +69,9 @@ const Question = (props) => {
                     </Link>
                 </div>
                 <div>
-                    {/* <Link to="/ShowStudent/tutorial"> */}
-                        <Button onClick={handleSave} color="light">บันทึกผล</Button>
-                    {/* </Link> */}
+                    <Link to="/ShowStudent/tutorial">
+                        <Button  onClick={handleSave} color="light">บันทึกผล</Button>
+                    </Link>
                 </div>
             </div>
         </div>

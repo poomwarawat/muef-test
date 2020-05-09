@@ -249,6 +249,12 @@ nav ul li{
 .not-found-back:hover{
   color: #333333;
 }
+.result-page{
+  width: 100%;
+  height: 100%;   
+  color: white;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
+}
 .INH-page{
   width: 100%;
   height: 100%;   

@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Start101 from './MUEF101/Start101'
 import {Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
+import API from '../../API/API'
 
-const TestingMenu = (props) => {    
+const TestingMenu = (props) => {  
+    const url = window.location.href
+    const urlnew = url.split("/")
+    
+    const [result, setResult] = useState(true)
+    const codeId = urlnew[4]
+    useEffect(() => {        
+        API.get(`/get-state-result/${codeId}`)
+        .then(res => {
+            if(res.data.result){
+                setResult(false)                
+            }
+        })
+    }, [])
+
     return (
         <div>
             {props.std && <h3>สวัสดีคุณ {props.username} ขณะนี้คุณกำลังทำแบบประเมินของ {props.std.fname} {props.std.lname} ชุดที่ {props.test}</h3>}            
@@ -20,8 +35,8 @@ const TestingMenu = (props) => {
                         </Link>
                     </div>
                     <div>
-                        <Link to="/">
-                            <Button color="light">บันทึกผลและดูคะแนน</Button>
+                        <Link to={`/MUEF-TEST-101/${codeId}/result`}>
+                            <Button disabled={result} color="light">บันทึกผลและดูคะแนน</Button>
                         </Link>
                     </div>
                 </div>

@@ -11,6 +11,7 @@ import EC from './component/Feed/MUEF101/EC'
 import WM from './component/Feed/MUEF101/WM'
 import PO from './component/Feed/MUEF101/PO'
 import Admin from './page/Admin'
+import TestResult from './component/Feed/TestResult'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/MUEF-TEST-101/:name/EC" component={EC}/>
         <Route path="/MUEF-TEST-101/:name/WM" component={WM}/>
         <Route path="/MUEF-TEST-101/:name/PO" component={PO}/>
+        <Route path="/MUEF-TEST-101/:name/result" component={TestResult}/>
         <Route path="/Admin" component={Admin}/>
         <Route path='*' exact={true} component={NotFound} />
       </Switch>      
