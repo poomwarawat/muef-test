@@ -1,6 +1,6 @@
 import React, {useState, Suspense} from 'react';
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {Button, Alert} from 'reactstrap'
 import SpinComp from '../../SpinComp'
 import API from '../../../API/API'
@@ -23,6 +23,20 @@ const Question = (props) => {
         questionNumber = 6
     }    
     const [error, setError] = useState("") 
+    const [redirect, setRedirect] = useState(false)
+    
+
+    if(redirect){        
+        if(props.mode === "PO"){
+            return(
+                <Redirect to={`/MUEF-TEST-101/${urlnew[4]}?mode=PO`}/>
+            )
+        }else{
+            return(
+                <Redirect to={`/MUEF-TEST-101/${urlnew[4]}`}/>
+            )
+        }
+    }
     
     const handleSave = () => {
         const arrScore = []
@@ -44,12 +58,12 @@ const Question = (props) => {
             Score.append("codeId", urlnew[4])
             API.post("/send-score", Score)
             .then(res => {
-                if(res.data.add === true){
-                    window.location.href = `/MUEF-TEST-101/${urlnew[4]}`
+                if(res.data.add === true){               
+                    setRedirect(true)                         
                 }
             })
         }        
-    }    
+    }        
     return (
         <div>
             <Suspense fallback={<SpinComp/>}>
@@ -68,10 +82,8 @@ const Question = (props) => {
                         <Button color="light" outline>ย้อนกลับ</Button>
                     </Link>
                 </div>
-                <div>
-                    <Link to="/ShowStudent/tutorial">
-                        <Button  onClick={handleSave} color="light">บันทึกผล</Button>
-                    </Link>
+                <div>                    
+                    <Button  onClick={handleSave} color="light">บันทึกผล</Button>                    
                 </div>
             </div>
         </div>

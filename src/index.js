@@ -16,7 +16,7 @@ ReactDOM.render(
   // <React.StrictMode></React.StrictMode>
     <Router>
       <Provider store={store}>
-      <App />
+      <App className="all-page" />
       </Provider>
     </Router>,
   document.getElementById('root')

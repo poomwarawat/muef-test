@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {Button, Container} from 'reactstrap'
 import {Link} from 'react-router-dom'
 import API from '../../../API/API'
-import WM from './WM';
-import PO from './PO';
+import SpinComp from '../../SpinComp'
 
-const Start101 = (props) => {    
-    const codeId = props.std.codeId
+var count = 0
+
+const Start101 = (props) => {        
+    const codeId = props.std.codeId    
+    count += 1
     const [inh, setINH] = useState(true)
     const [shf, setSHF] = useState(true)
     const [ec, setEC] = useState(true)
@@ -15,7 +17,7 @@ const Start101 = (props) => {
 
     useEffect(() => {        
         API.get(`/get-score-state/${codeId}`)
-        .then(res => {          
+        .then(res => {                      
             if(res.data.INH === false){
                 setINH(false)
             }  
@@ -36,8 +38,13 @@ const Start101 = (props) => {
             }
         })
     }, [])
-    return (
-        <div className="mt-4">
+    const menulist = () => {
+        if(count < 2){            
+            return(
+                <SpinComp/>
+            )
+        }else{
+            return(
             <Container>
                 <Link to={`/MUEF-TEST-101/${codeId}/INH`}>
                     <Button id="INH_BTN" disabled={inh} className="w-100 mt-2" color="light">พฤติกรรมด้านการยับยั้ง</Button>
@@ -55,6 +62,12 @@ const Start101 = (props) => {
                     <Button id="PO_BTN" disabled={po} className="w-100 mt-2" color="light">พัฒนาการด้านการวางแผนจัดการ</Button>                                    
                 </Link>                
             </Container>
+            )
+        }
+    }
+    return (
+        <div className="mt-4"> 
+            {menulist()}                       
         </div>
     );
 }

@@ -13,15 +13,13 @@ const Table101 = () => {
             setUser(res.data[0].username)
             API.get(`/get-student-user/${res.data[0].username}`)
             .then(res => {
-                if(res.data){
-                    setStd(res.data)             
+                if(res.data){                    
+                    setStd(res.data)                    
                 }
             })
         })        
     }, [])
-
-
-    
+   
     return (
         <div>                                 
             {user && student && <ShowTable user={user} std={student} testCode={101}/>}                        

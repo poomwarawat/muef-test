@@ -1,8 +1,10 @@
 import React from 'react';
 import {Table, Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
+import EstimateBtn from '../EstimateBtn'
+import ResultBtn from '../ResultBtn'
 
-const ShowTable = (props) => {            
+const ShowTable = (props) => {       
     return (
         <div>            
             <h1>รายชื่อนักเรียนที่กรอกข้อมูลแบบฟอร์ม MU.EF {props.testCode}</h1>
@@ -26,12 +28,10 @@ const ShowTable = (props) => {
                                 <td>{student.codeId}</td>
                                 <td>{student.fname} {student.lname}</td>
                                 <td>
-                                    <Link to={`/MUEF-TEST-${props.testCode}/${student.codeId}`}>
-                                        <Button color="primary">ประเมิน</Button>
-                                    </Link>
+                                    <EstimateBtn codeId={student.codeId} url={`/MUEF-TEST-${props.testCode}/${student.codeId}`}/>                                 
                                 </td>
                                 <td>
-                                    <Link to="/">ผลประเมิน</Link>
+                                    <ResultBtn codeId={student.codeId} url={`/MUEF-TEST-101/${student.codeId}/result`}/>                                    
                                 </td>
                                 <td></td>
                             </tr> 

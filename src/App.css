@@ -4,7 +4,10 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  text-decoration: none;
+  text-decoration: none;  
+}
+.app-page{
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
 }
 .logo-name{
   color: white;
@@ -166,7 +169,7 @@ nav ul li{
 }
 .Show-Student{
   width: 100%;
-  height: 100%;  
+  height: 110vh;  
   padding-bottom: 100px;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
 }
@@ -184,7 +187,9 @@ nav ul li{
 }
 .table-bg{
   background-color: white;
+  height: 300px;
   overflow-y: auto;
+  overflow-x: auto;
 }
 .back-menu{
   margin-top: 30px;
@@ -203,7 +208,7 @@ nav ul li{
   padding: 30px;    
   padding-left: 90px;
 }
-.tutorial{
+.tutorial{  
   color: white;
   padding: 30px;
   margin-left: 90px;
@@ -255,6 +260,9 @@ nav ul li{
   color: white;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b); 
 }
+.result-output div p{
+  font-size: 18px;
+}
 .INH-page{
   width: 100%;
   height: 100%;   
@@ -296,15 +304,33 @@ nav ul li{
 .admin-page hr{
   background-color: white;
 }
+.rada-graph{  
+  /* background-color: white; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.rada-graph div {
+  background-color: white;
+  width: 90%;
+  border-radius: 10px;
+}
+.topic-result{
+  display: inline;
+}
 @media (max-width: 858px){
+  .topic-result{
+
+    display: none;
+  }
   .admin-page{
     color: white;
     padding: 10px;
     margin-left: 10px;  
-  }
+  }  
   .Show-Student{
     width: 120%;
-    height: 100%;  
+    height: auto;  
     padding-bottom: 100px;
     background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
   }  

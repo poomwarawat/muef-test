@@ -29,8 +29,7 @@ const TestResult = (props) => {
         <div className="result-page"> 
             <Header/>
             <Container>
-                <div className="test-page">
-                    <h1>ผลการทำแบบทดสอบ</h1>
+                <div className="test-page">                    
                     <Suspense fallback={<SpinComp/>}>
                         {student.length > 0 && <OutputResult result={student}/>}
                     </Suspense>
