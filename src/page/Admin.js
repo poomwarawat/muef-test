@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../component/Home/Header'
 import { Container, Row, Col, Button } from 'reactstrap'
-import StudentList from '../component/Admin/stdList'
+import {Link} from 'react-router-dom'
 
 const Admin = () => {            
     return (
@@ -22,7 +22,9 @@ const Admin = () => {
                                 </Col>
                             </Row>
                             <Button className="mr-2 mt-1" color="primary">รายชื่อนักเรียนที่ลงทะเบียน</Button>
-                            <Button className="mt-1" color="primary">รายชื่อครูที่ลงทะเบียน</Button>
+                            <Link to="/Admin/user-list">
+                                <Button className="mt-1" color="primary">รายชื่อครูที่ลงทะเบียน</Button>
+                            </Link>
                         </div>
                         <hr/>
                         <div className="mt-4">

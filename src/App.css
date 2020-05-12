@@ -318,6 +318,21 @@ nav ul li{
 .topic-result{
   display: inline;
 }
+.all-user-list-bg{
+  height: 500px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.all-user-list{
+  background-color: white;
+  width: 100%;
+  height: auto;
+}
+.all-user{
+  height: 115vh;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
+}
 @media (max-width: 858px){
   .topic-result{
 
@@ -359,6 +374,10 @@ nav ul li{
   }
   .home-content{
     height: 115vh;
+  }
+  .all-user{
+    height: 115vh;
+    background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);  
   }
   .name-content h1{        
     margin-top: 0;

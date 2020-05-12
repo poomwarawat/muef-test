@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "firebase-tools": "^8.2.0",
+    "ftp-client": "^0.2.2",
     "react": "^16.13.1",
     "react-addons-update": "^15.6.2",
     "react-chartjs-2": "^2.9.0",
