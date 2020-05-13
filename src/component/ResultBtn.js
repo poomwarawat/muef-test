@@ -3,15 +3,17 @@ import {Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
 import API from '../API/API'
 
-const ResultBtn = (props) => {
+
+const ResultBtn = (props) => {    
     const codeId = props.codeId
-    const [score, setScore] = useState(true)
-    
+    const [score, setScore] = useState(null)    
     useEffect(() => {
         API.get(`/check-total-score/${codeId}`)
         .then(res => {
-            if(res.data.result){
-                setScore(false)
+            if(res.data.result){                
+                setScore(false)                
+            }else{
+                setScore(true)
             }
         })
     }, [])

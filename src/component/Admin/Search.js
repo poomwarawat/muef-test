@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from "reactstrap";
 import API from '../../API/API'
 
-const Search = (props) => {
+const Search = (props) => {    
     const getALlUser = () =>{
         API.get("/admin/get-user")
         .then(res => {            
@@ -20,7 +20,7 @@ const Search = (props) => {
             .then(res => {   
                 if(res.data.not === true){                    
                     props.handleSearch({not : "ไม่พบข้อมูลผู้ใช้งาน"})
-                }else{
+                }else{                    
                     props.handleSearch(res.data)
                 }          
             })            

@@ -4,24 +4,25 @@ import {Link} from 'react-router-dom'
 import API from '../API/API'
 
 const EstimateBtn = (props) => {
-    const codeId = props.codeId
-    const [score, setScore] = useState(false)
+    const codeId = props.codeId    
+    const [score, setScore] = useState(null)
     
     useEffect(() => {
-        API.get(`/check-total-score/${codeId}`)
+        const api = () => API.get(`/check-total-score/${codeId}`)
         .then(res => {
-            if(res.data.result){
-                setScore(true)
+            if(res.data.result === false){                
+                setScore(false)                
             }
         })
+        api()        
     }, [])
 
     return (
-        <div>
+        <div>            
             { score !== false ? <div></div> : 
-            <Link to={`${props.url}`}>
+                <Link to={`${props.url}`}>
                 <Button color="primary">ประเมิน</Button>
-            </Link>}
+            </Link>}           
         </div>
     );
 }

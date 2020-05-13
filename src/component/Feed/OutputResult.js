@@ -8,7 +8,7 @@ const OutputResult = (props) => {
     const results = props.result    
     const gender = results[6].gender
     const birthday = results[7].birthday 
-
+    console.log(results)
     const data = {
         labels: ['INH', 'SHF', 'EC', 'WM', 'PO'],
         datasets: [
