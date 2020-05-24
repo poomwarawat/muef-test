@@ -333,6 +333,17 @@ nav ul li {
   height: 115vh;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
 }
+.table-new-student {
+  overflow-y: auto;
+  background-color: white;
+}
+.upload-area {
+  padding: 7px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+}
 @media (max-width: 858px) {
   .all-user-list-bg {
     height: 500px;
