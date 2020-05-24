@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Start101 from "./MUEF101/Start101";
+import Start102 from "./MUEF102/Start102";
 import { Button } from "reactstrap";
 import { Link, Redirect } from "react-router-dom";
 import API from "../../API/API";
 
-const TestingMenu = (props) => {
+const TestingMenu2 = (props) => {
   const url = window.location.href;
   const urlnew = url.split("/");
   const lastQuestion = url.split("?");
@@ -16,7 +16,7 @@ const TestingMenu = (props) => {
     if (lastQuestion[1] === "mode=PO") {
       setResult(false);
     }
-    API.get(`/get-state-result/${codeId}`).then((res) => {
+    API.get(`/get-state-result-102/${codeId}`).then((res) => {
       if (res.data.result) {
         console.log(res.data.result);
         setResult(false);
@@ -25,7 +25,7 @@ const TestingMenu = (props) => {
   }, []);
   if (redirect) {
     const splitCode = lastQuestion[0].split("/");
-    return <Redirect to={`/MUEF-TEST-101/${splitCode[4]}/result`} />;
+    return <Redirect to={`/MUEF-TEST-102/${splitCode[4]}/result`} />;
   }
   const handleSave = () => {
     setRedirect(true);
@@ -39,7 +39,7 @@ const TestingMenu = (props) => {
         </h3>
       )}
       <div>
-        {props.std && <Start101 std={props.std} />}
+        {props.std && <Start102 std={props.std} />}
         <div className="mt-4">
           <h3>คำชี้แจง</h3>
           <p>
@@ -53,7 +53,7 @@ const TestingMenu = (props) => {
         </div>
         <div className="back-menu">
           <div>
-            <Link to="/ShowStudent/MUEF101">
+            <Link to="/ShowStudent/MUEF102">
               <Button color="light" outline>
                 ย้อนกลับ
               </Button>
@@ -70,4 +70,4 @@ const TestingMenu = (props) => {
   );
 };
 
-export default TestingMenu;
+export default TestingMenu2;

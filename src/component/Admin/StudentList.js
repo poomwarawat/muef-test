@@ -12,10 +12,9 @@ const Users = React.lazy(() => {
   return x;
 });
 
-const UserList = () => {
+const StudentList = () => {
   const [data, setData] = useState(null);
   const [notfound, setNotFound] = useState(false);
-  // const not = [{id : "ไม่พบข้อมูล", fname : "ไม่พบข้อมูล", lname : "ไม่พบข้อมูล", username : "ไม่พบข้อมูล"}]
   const handleSearch = (e) => {
     if (e.not) {
       setNotFound(true);
@@ -30,13 +29,14 @@ const UserList = () => {
           <h1>รายชื่อสมาชิกในระบบ</h1>
           <Row>
             <Col className="mt-2" md={5}>
-              <Search type="student" handleSearch={handleSearch} />
+              <Search type="user" handleSearch={handleSearch} />
             </Col>
           </Row>
           <div className="all-user-list-bg mt-2">
             <div className="all-user-list">
               <Suspense fallback={<SpinComp />}>
-                {data ? <Users type="user" userlist={data} /> : null}
+                {data ? console.log(data) : null}
+                {data ? <Users type="std" userlist={data} /> : null}
               </Suspense>
               <Suspense fallback={<SpinComp />}>
                 {notfound && (
@@ -55,4 +55,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default StudentList;

@@ -17,7 +17,7 @@ const TestResult = (props) => {
   const codeId = props.match.params.name;
 
   useEffect(() => {
-    API.get(`/get-result/${codeId}`).then((res) => {
+    API.get(`/get-result-102/${codeId}`).then((res) => {
       // console.log(res.data.data)
       if (res.data) {
         setStudent(student.concat(res.data.data));
@@ -30,7 +30,7 @@ const TestResult = (props) => {
       <Container>
         <div className="test-page">
           <Suspense fallback={<SpinComp />}>
-            {student.length > 0 && <OutputResult result={student} code={101} />}
+            {student.length > 0 && <OutputResult result={student} code={102} />}
           </Suspense>
         </div>
       </Container>
