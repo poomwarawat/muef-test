@@ -213,7 +213,10 @@ const ResultText = (props) => {
         <Row>
           <Col md={6}>
             {resultText.length > 0 && (
-              <p>{resultText[0]["T_SCORE_GEC"]["resultText"][1]} </p>
+              <div>
+                <p>{resultText[0]["T_SCORE_GEC"]["resultText"][1]} </p>
+                <p>{resultText[0]["T_SCORE_GEC"]["resultText"][2]} </p>
+              </div>
             )}
           </Col>
         </Row>

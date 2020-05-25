@@ -18,6 +18,13 @@ const Csvupload = () => {
     });
   });
   const handleUpload = () => {
+    if (newStudent === null) {
+      alert("โปรดเลือกข้อมูล");
+    } else {
+      toUpload();
+    }
+  };
+  const toUpload = () => {
     setSpinner(true);
     console.log(newStudent.length);
     const Data = new FormData();

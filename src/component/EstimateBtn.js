@@ -14,6 +14,8 @@ const EstimateBtn = (props) => {
         API.get(`/check-total-score/${codeId}`).then((res) => {
           if (res.data.result === false) {
             setScore(false);
+          } else {
+            setScore(true);
           }
         });
       api();
@@ -22,23 +24,28 @@ const EstimateBtn = (props) => {
         API.get(`/check-total-score-102/${codeId}`).then((res) => {
           if (res.data.result === false) {
             setScore(false);
+          } else {
+            setScore(true);
           }
         });
       api();
     }
   }, []);
-
-  return (
-    <div>
-      {score !== false ? (
-        <div></div>
-      ) : (
+  const renderbtn = () => {
+    if (score === true) {
+      return <div></div>;
+    }
+    if (score !== false) {
+      return <div>Loading...</div>;
+    } else {
+      return (
         <Link to={`${props.url}`}>
           <Button color="primary">ประเมิน</Button>
         </Link>
-      )}
-    </div>
-  );
+      );
+    }
+  };
+  return <div>{renderbtn()}</div>;
 };
 
 export default EstimateBtn;

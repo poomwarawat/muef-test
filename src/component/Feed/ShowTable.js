@@ -17,7 +17,7 @@ const ShowTable = (props) => {
               <th>ชื่อ-นามสกุล</th>
               <th>แบบประเมิน</th>
               <th>ผลประเมิน</th>
-              <th>หมายเหตุ*</th>
+              <th>แก้ไขข้อมูล</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +43,11 @@ const ShowTable = (props) => {
                       url={`/MUEF-TEST-101/${student.codeId}/result`}
                     />
                   </td>
-                  <td></td>
+                  <td>
+                    <Link to={`/edit/${student.codeId}`}>
+                      <Button color="danger">แก้ไขข้อมูล</Button>
+                    </Link>
+                  </td>
                 </tr>
               );
             })}

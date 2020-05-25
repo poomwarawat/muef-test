@@ -42,7 +42,7 @@ const Admin = () => {
                   อัพโหลดข้อมูลรักเรียนผ่าน csv
                 </Button>
               </Link>
-              <Button className="mt-1" color="primary">
+              <Button disabled className="mt-1" color="primary">
                 อัพโหลดข้อมูลรักเรียนผ่าน xlsx
               </Button>
             </div>

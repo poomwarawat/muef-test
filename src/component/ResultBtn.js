@@ -26,16 +26,17 @@ const ResultBtn = (props) => {
       });
     }
   }, []);
-
-  return (
-    <div>
-      {score !== false ? (
-        <div></div>
-      ) : (
-        <Link to={`${props.url}`}>ผลประเมิน</Link>
-      )}
-    </div>
-  );
+  const renderbtn = () => {
+    if (score === true) {
+      return <div></div>;
+    }
+    if (score !== false) {
+      return <div>Loading...</div>;
+    } else {
+      return <Link to={`${props.url}`}>ผลประเมิน</Link>;
+    }
+  };
+  return <div>{renderbtn()}</div>;
 };
 
 export default ResultBtn;

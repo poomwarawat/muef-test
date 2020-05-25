@@ -22,6 +22,7 @@ import TestResult2 from "./component/Feed/TestResult102";
 import UserList from "./component/Admin/UserList";
 import StudentList from "./component/Admin/StudentList";
 import Csvupload from "./component/Admin/csv/csvupload";
+import Edit from "./component/Feed/EditStudent/Edit";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/Admin/user-list" component={UserList} />
         <Route path="/Admin/teacher-list" component={StudentList} />
         <Route path="/Admin/upload-csv" component={Csvupload} />
+        <Route path="/edit/:id/" component={Edit} />
         <Route path="*" exact={true} component={NotFound} />
       </Switch>
     </div>
