@@ -6,11 +6,13 @@ const Search = (props) => {
   const getALlUser = () => {
     API.get("/admin/get-user").then((res) => {
       props.handleSearch(res.data);
+      // console.log(res.data);
     });
   };
   const getAllStudent = () => {
     API.get("/admin/get-student").then((res) => {
       props.handleSearch(res.data);
+      // console.log(res.data);
     });
   };
   useEffect(() => {
@@ -21,9 +23,10 @@ const Search = (props) => {
     }
   }, []);
   const handelOnChange = (e) => {
+    // console.log(props.type);
     const data = new FormData();
     data.append("data", e.target.value);
-    if (e.target.value !== "" && props.type === "user") {
+    if (e.target.value !== "" && props.type === "student") {
       API.post("/admin/search-user", data).then((res) => {
         if (res.data.not === true) {
           props.handleSearch({ not: "ไม่พบข้อมูลผู้ใช้งาน" });
@@ -31,7 +34,7 @@ const Search = (props) => {
           props.handleSearch(res.data);
         }
       });
-    } else if (e.target.value !== "" && props.type === "std") {
+    } else if (e.target.value !== "" && props.type === "user") {
       API.post("/admin/search-student", data).then((res) => {
         if (res.data.not === true) {
           props.handleSearch({ not: "ไม่พบข้อมูลผู้ใช้งาน" });
@@ -40,7 +43,7 @@ const Search = (props) => {
         }
       });
     } else {
-      if (props.type === "user") {
+      if (props.type === "student") {
         getALlUser();
       } else {
         getAllStudent();

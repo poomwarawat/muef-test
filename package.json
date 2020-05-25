@@ -10,7 +10,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "csv": "^5.3.2",
-    "firebase-tools": "^8.2.0",
+    "firebase-tools": "^8.4.0",
     "ftp-client": "^0.2.2",
     "papaparse": "^5.2.0",
     "react": "^16.13.1",

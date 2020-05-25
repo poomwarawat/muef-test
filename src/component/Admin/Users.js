@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "reactstrap";
 
 const Users = (props) => {
-  console.log(props.type);
   var users = [];
   if (props.userlist.length > 0) {
     users = users.concat(props.userlist);

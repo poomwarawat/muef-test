@@ -74,9 +74,28 @@ nav ul li {
     font-size: 16px;
   }
 }
+.center-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bg-spinner {
+  background-color: rgba(0, 0, 0, 0.527);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
 .home-content {
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
   height: 100vh;
+  align-items: center;
+}
+.upload-csv-page {
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
+  height: 100%;
   align-items: center;
 }
 .index-content {
@@ -337,13 +356,7 @@ nav ul li {
   overflow-y: auto;
   background-color: white;
 }
-.upload-area {
-  padding: 7px;
-  margin-bottom: 10px;
-  background-color: white;
-  border-radius: 5px;
-  color: black;
-}
+
 @media (max-width: 858px) {
   .all-user-list-bg {
     height: 500px;
@@ -395,6 +408,9 @@ nav ul li {
   }
   .home-content {
     height: 115vh;
+  }
+  .upload-csv-page {
+    height: 100%;
   }
   .all-user {
     height: 115vh;

@@ -1,22 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Home/Header";
-import { Container, Row, Col, Button, Input, Table } from "reactstrap";
+import { Container, Button, Spinner, Table } from "reactstrap";
 import Dropzone from "react-dropzone";
 import csv from "csv";
+import API from "../../../API/API";
+import { Redirect } from "react-router-dom";
 
 const Csvupload = () => {
   const [newStudent, setNewstudent] = useState(null);
+  const [spinnerState, setSpinner] = useState(false);
+  const [user, setUser] = useState("");
+  const [toTest, setTotest] = useState(false);
+  const token = localStorage.getItem("key");
+  useEffect(() => {
+    API.get(`/get-access-user/${token}`).then((res) => {
+      setUser(res.data[0].username);
+    });
+  });
+  const handleUpload = () => {
+    setSpinner(true);
+    console.log(newStudent.length);
+    const Data = new FormData();
+    for (let index = 1; index < newStudent.length; index++) {
+      // console.log(newStudent[index]);
+      Data.append(`newstd${index}`, newStudent[index]);
+    }
+    Data.append("LengthData", newStudent.length - 1);
+    Data.append("username", user);
+    API.post("/admin/upload-csv-data", Data).then((res) => {
+      if (res.data.add) {
+        setSpinner(false);
+        setTotest(true);
+      }
+    });
+  };
+
+  if (toTest === true) {
+    return <Redirect to="/ShowStudent/MUEF101" />;
+  }
+  const spinner = () => {
+    if (spinnerState === true) {
+      return (
+        <div className="bg-spinner">
+          <div className="center-page">
+            <Spinner type="grow" color="primary" />
+            <Spinner type="grow" color="secondary" />
+            <Spinner type="grow" color="success" />
+            <Spinner type="grow" color="danger" />
+            <Spinner type="grow" color="warning" />
+            <Spinner type="grow" color="info" />
+          </div>
+        </div>
+      );
+    }
+  };
   return (
-    <div className="home-content">
+    <div className="upload-csv-page">
       <Header />
       <Container>
         <div className="admin-page">
-          <h1>Upload csv</h1>
           <div>
-            <h3>กรุณาเลือกไฟล์</h3>
+            <h3>ขั้นตอนการอัพโหลดข้อมูล</h3>
+            <div className="alert alert-primary">
+              1. สร้างข้อมูลในโปรแกรม Microsoft Excel หรือโปรแกรมอื่นๆ
+              โดยกำหนดให้รูปแบบคอลั่มตรงกับในตาราง
+            </div>
+            <div className="alert alert-primary">
+              2. ส่งออกหรือเซฟข้อมูลในนามสกุล .csv
+            </div>
+            <div className="alert alert-primary">
+              3. กดยังปุ่มบริเวณข้างล่างหรือลากไฟล์ที่ต้องการนำเข้ามาวาง
+            </div>
+            <div className="alert alert-primary">
+              4. ตรวจสอบความครบถ้วนของข้อมูล
+            </div>
+            <div className="alert alert-primary">
+              5. กดปุ่ม Upload เพื่อเพิ่มข้อมูล
+            </div>
             <h5>หมายเหตุ*</h5>
             <p>กรุณาสร้างข้อมูลหรือตารางให้ตรงกับฟอร์ม</p>
-            <div className="upload-area">
+            <div className="alert alert-info">
               <Dropzone
                 onDrop={(acceptedFiles) => {
                   const reader = new FileReader();
@@ -32,8 +95,8 @@ const Csvupload = () => {
                   <section>
                     <div {...getRootProps()}>
                       <input {...getInputProps()} />
-                      <p>
-                        Drag 'n' drop some files here, or click to select files
+                      <p className="mt-3">
+                        กดที่นี่หรือลากไฟล์มาวางเพื่อเพิ่มข้อมูล
                       </p>
                     </div>
                   </section>
@@ -93,9 +156,10 @@ const Csvupload = () => {
             </Table>
           </div>
           <div>
-            <Button className="mt-2" color="primary">
+            <Button onClick={handleUpload} className="mt-2" color="primary">
               Upload
             </Button>
+            {spinner()}
           </div>
         </div>
       </Container>

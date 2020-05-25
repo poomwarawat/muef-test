@@ -26,7 +26,7 @@ const StudentList = () => {
       <Header />
       <Container>
         <div className="admin-page">
-          <h1>รายชื่อสมาชิกในระบบ</h1>
+          <h1>รายชื่อนักเรียนในระบบ</h1>
           <Row>
             <Col className="mt-2" md={5}>
               <Search type="user" handleSearch={handleSearch} />
@@ -35,7 +35,7 @@ const StudentList = () => {
           <div className="all-user-list-bg mt-2">
             <div className="all-user-list">
               <Suspense fallback={<SpinComp />}>
-                {data ? console.log(data) : null}
+                {/* {data ? console.log(data) : null} */}
                 {data ? <Users type="std" userlist={data} /> : null}
               </Suspense>
               <Suspense fallback={<SpinComp />}>
