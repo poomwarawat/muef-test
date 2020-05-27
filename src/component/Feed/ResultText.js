@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../API/API";
 import { Row, Col, Button } from "reactstrap";
 import { Radar } from "react-chartjs-2";
+import CreatePDF from "../PDF/CreatePDF";
 
 const ResultText = (props) => {
   const result = props.result;
@@ -221,6 +222,9 @@ const ResultText = (props) => {
           </Col>
         </Row>
       </div>
+      {resultText.length > 0 && (
+        <CreatePDF result={resultText[0]} profile={result} />
+      )}
     </div>
   );
 };

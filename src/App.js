@@ -23,32 +23,41 @@ import UserList from "./component/Admin/UserList";
 import StudentList from "./component/Admin/StudentList";
 import Csvupload from "./component/Admin/csv/csvupload";
 import Edit from "./component/Feed/EditStudent/Edit";
+import PrivateRoute from "./component/privateRoute";
+import CreatePDF from "./component/PDF/CreatePDF";
 
 function App() {
   return (
     <div>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/ShowStudent" component={ShowStudent} />
-        <Route path="/MUEF-TEST-101/:name" component={MenuTest} exact />
-        <Route path="/MUEF-TEST-101/:name/INH" component={INH} />
-        <Route path="/MUEF-TEST-101/:name/SHF" component={SHF} />
-        <Route path="/MUEF-TEST-101/:name/EC" component={EC} />
-        <Route path="/MUEF-TEST-101/:name/WM" component={WM} />
-        <Route path="/MUEF-TEST-101/:name/PO" component={PO} />
-        <Route path="/MUEF-TEST-101/:name/result" component={TestResult} />
-        <Route path="/MUEF-TEST-102/:name" component={MenuTest2} exact />
-        <Route path="/MUEF-TEST-102/:name/INH" component={INH2} />
-        <Route path="/MUEF-TEST-102/:name/SHF" component={SHF2} />
-        <Route path="/MUEF-TEST-102/:name/EC" component={EC2} />
-        <Route path="/MUEF-TEST-102/:name/WM" component={WM2} />
-        <Route path="/MUEF-TEST-102/:name/PO" component={PO2} />
-        <Route path="/MUEF-TEST-102/:name/result" component={TestResult2} />
-        <Route path="/Admin" component={Admin} exact />
-        <Route path="/Admin/user-list" component={UserList} />
-        <Route path="/Admin/teacher-list" component={StudentList} />
-        <Route path="/Admin/upload-csv" component={Csvupload} />
-        <Route path="/edit/:id/" component={Edit} />
+        <Route path="/pdf" component={CreatePDF} />
+        <PrivateRoute path="/ShowStudent" component={ShowStudent} />
+        <PrivateRoute path="/MUEF-TEST-101/:name" component={MenuTest} exact />
+        <PrivateRoute path="/MUEF-TEST-101/:name/INH" component={INH} />
+        <PrivateRoute path="/MUEF-TEST-101/:name/SHF" component={SHF} />
+        <PrivateRoute path="/MUEF-TEST-101/:name/EC" component={EC} />
+        <PrivateRoute path="/MUEF-TEST-101/:name/WM" component={WM} />
+        <PrivateRoute path="/MUEF-TEST-101/:name/PO" component={PO} />
+        <PrivateRoute
+          path="/MUEF-TEST-101/:name/result"
+          component={TestResult}
+        />
+        <PrivateRoute path="/MUEF-TEST-102/:name" component={MenuTest2} exact />
+        <PrivateRoute path="/MUEF-TEST-102/:name/INH" component={INH2} />
+        <PrivateRoute path="/MUEF-TEST-102/:name/SHF" component={SHF2} />
+        <PrivateRoute path="/MUEF-TEST-102/:name/EC" component={EC2} />
+        <PrivateRoute path="/MUEF-TEST-102/:name/WM" component={WM2} />
+        <PrivateRoute path="/MUEF-TEST-102/:name/PO" component={PO2} />
+        <PrivateRoute
+          path="/MUEF-TEST-102/:name/result"
+          component={TestResult2}
+        />
+        <PrivateRoute path="/Admin" component={Admin} exact />
+        <PrivateRoute path="/Admin/user-list" component={UserList} />
+        <PrivateRoute path="/Admin/teacher-list" component={StudentList} />
+        <PrivateRoute path="/Admin/upload-csv" component={Csvupload} />
+        <PrivateRoute path="/edit/:id/" component={Edit} />
         <Route path="*" exact={true} component={NotFound} />
       </Switch>
     </div>

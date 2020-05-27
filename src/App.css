@@ -317,6 +317,16 @@ nav ul li {
   padding: 30px;
   margin-left: 20px;
 }
+.edit-bg-page {
+  width: 100%;
+  background-color: white;
+}
+.edit-page {
+  margin-top: 20px;
+  color: black;
+  padding: 30px;
+  margin-left: 20px;
+}
 .std-table {
   background-color: white;
 }
@@ -356,7 +366,19 @@ nav ul li {
   overflow-y: auto;
   background-color: white;
 }
-
+#pdf-generator {
+  font-family: "Sarabun", sans-serif;
+}
+#pdf-generator p {
+  font-size: 20px;
+}
+#row-data {
+  display: flex;
+  flex-wrap: wrap;
+}
+#row-data > div {
+  width: 250px;
+}
 @media (max-width: 858px) {
   .all-user-list-bg {
     height: 500px;
