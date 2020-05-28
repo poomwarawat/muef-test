@@ -40,7 +40,7 @@ const ShowTable = (props) => {
                     <ResultBtn
                       codeId={student.codeId}
                       type={props.testCode}
-                      url={`/MUEF-TEST-101/${student.codeId}/result`}
+                      url={`/MUEF-TEST-${props.testCode}/${student.codeId}/result`}
                     />
                   </td>
                   <td>

@@ -223,7 +223,7 @@ const ResultText = (props) => {
         </Row>
       </div>
       {resultText.length > 0 && (
-        <CreatePDF result={resultText[0]} profile={result} />
+        <CreatePDF result={resultText[0]} profile={result} code={props.code} />
       )}
     </div>
   );

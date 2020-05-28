@@ -4,10 +4,16 @@ import html2pdf from "html2pdf.js";
 
 const CreatePDF = (props) => {
   console.log(props.profile);
+  var gender = "";
+  if (props.profile[6].gender === "male") {
+    gender = "ชาย";
+  } else {
+    gender = "หญิง";
+  }
   const profile = props.profile;
   const pdfGenerator = () => {
     const content = `<div id="pdf-generator">
-    <h1>รายงานผลการประเมิน</h1>
+    <h1>รายงานผลการประเมินชุดที่ ${props.code}</h1>
     <p>ข้อมูลนักเรียน</p>
     <hr />
     <div id="row-data">
@@ -18,7 +24,7 @@ const CreatePDF = (props) => {
         <p>นามสกุล : ${profile[9].lastname}</p>
       </div>      
       <div>
-        <p>เพศ : ${profile[6].gender}</p>
+        <p>เพศ : ${gender}</p>
       </div>
     </div>
     <div id="row-data">
@@ -29,10 +35,10 @@ const CreatePDF = (props) => {
         <p>อายุ : ${profile[7].birthday.year}ปี</p>
       </div>
       <div>
-        <p>โรงเรียน : KMUTT</p>
+        <p>โรงเรียน : ${profile[13].schoolname}</p>
       </div>
       <div>
-        <p>จังหวัด : กรุงเทพมหานคร</p>
+        <p>จังหวัด : ${profile[14].province}</p>
       </div>
     </div>
     <hr />
@@ -80,6 +86,8 @@ const CreatePDF = (props) => {
       ${props.result["T_SCORE_GEC"].resultText[0]} ${props.result["T_SCORE_GEC"].resultText[1]} ${props.result["T_SCORE_GEC"].resultText[2]}
       </p>
     </div>
+    <hr/>
+    <a href="#">www.muef-testing.com</a>
   </div>`;
 
     const opt = {
