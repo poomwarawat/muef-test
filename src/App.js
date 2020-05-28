@@ -25,6 +25,8 @@ import Csvupload from "./component/Admin/csv/csvupload";
 import Edit from "./component/Feed/EditStudent/Edit";
 import PrivateRoute from "./component/privateRoute";
 import CreatePDF from "./component/PDF/CreatePDF";
+import About from "./page/About";
+import Contact from "./page/Contact";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/pdf" component={CreatePDF} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
         <PrivateRoute path="/ShowStudent" component={ShowStudent} />
         <PrivateRoute path="/MUEF-TEST-101/:name" component={MenuTest} exact />
         <PrivateRoute path="/MUEF-TEST-101/:name/INH" component={INH} />

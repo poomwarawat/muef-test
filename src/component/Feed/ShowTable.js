@@ -45,7 +45,9 @@ const ShowTable = (props) => {
                   </td>
                   <td>
                     <Link to={`/edit/${student.codeId}`}>
-                      <Button color="danger">แก้ไขข้อมูล</Button>
+                      <Button disabled color="danger">
+                        แก้ไขข้อมูล
+                      </Button>
                     </Link>
                   </td>
                 </tr>

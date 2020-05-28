@@ -33,7 +33,7 @@ const Admin = () => {
                   เพิ่มข้อมูลนักเรียน
                 </Button>
               </Link>
-              <Button className="mt-1" color="primary">
+              <Button disabled className="mt-1" color="primary">
                 เพิ่มข้อมูลคุณครู
               </Button>
               <p className="mt-2">อัพโหลดข้อมูล</p>

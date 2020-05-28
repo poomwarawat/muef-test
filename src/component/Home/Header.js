@@ -105,12 +105,16 @@ const Header = (props) => {
               <p className="nav-text">Home</p>
             </li>
           </Link>
-          <li>
-            <p className="nav-text">About</p>
-          </li>
-          <li>
-            <p className="nav-text">Contact</p>
-          </li>
+          <Link to="/about" style={{ color: "white" }}>
+            <li>
+              <p className="nav-text">About</p>
+            </li>
+          </Link>
+          <Link to="/contact" style={{ color: "white" }}>
+            <li>
+              <p className="nav-text">Contact</p>
+            </li>
+          </Link>
           {key ? (
             <Link to="/Admin" style={{ color: "white" }}>
               <li>
