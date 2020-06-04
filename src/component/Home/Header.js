@@ -28,11 +28,14 @@ let loginInit = {
 const Header = (props) => {
   const { className } = props;
   const key = localStorage.getItem("key");
+  const userState = localStorage.getItem("State");
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [user, setUser] = useState(userInit);
   const [login, setLogin] = useState(loginInit);
   const [error, setError] = useState("");
+
+  console.log(userState);
 
   const handleLogout = () => {
     localStorage.removeItem("key");
@@ -73,11 +76,17 @@ const Header = (props) => {
     Data.append("username", login.username);
     Data.append("password", login.password);
     API.post(`/auth-sign-in`, Data).then((res) => {
-      console.log(res);
       if (res.data.error) {
         setError(res.data.error);
       }
       if (res.data.user && res.data.access) {
+        console.log(res.data);
+        if (res.data.status === "admin") {
+          localStorage.setItem("State", "a");
+        }
+        if (res.data.status === "user") {
+          localStorage.setItem("State", "u");
+        }
         localStorage.setItem("key", res.data.access);
         window.location.reload();
       }
@@ -116,7 +125,7 @@ const Header = (props) => {
               <p className="nav-text">Contact</p>
             </li>
           </Link>
-          {key ? (
+          {userState === "a" ? (
             <Link to="/Admin" style={{ color: "white" }}>
               <li>
                 <p className="nav-text">Admin</p>
