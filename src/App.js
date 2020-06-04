@@ -27,6 +27,11 @@ import PrivateRoute from "./component/privateRoute";
 import CreatePDF from "./component/PDF/CreatePDF";
 import About from "./page/About";
 import Contact from "./page/Contact";
+import Technicalterms from "./component/Home/details/Technicalterms";
+import Instruction from "./component/Home/details/Instruction";
+import Aboutresult from "./component/Home/details/Aboutresult";
+import EdituserAdmin from "./component/Admin/EdituserAdmin";
+import EditInfomation from "./component/Admin/EditInfomation";
 
 function App() {
   return (
@@ -36,6 +41,15 @@ function App() {
         <Route path="/pdf" component={CreatePDF} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/technicalterms" component={Technicalterms} />
+        <Route path="/instruction" component={Instruction} />
+        <Route path="/aboutresult" component={Aboutresult} />
+        <PrivateRoute
+          path="/Admin/edit_admin"
+          exact
+          component={EdituserAdmin}
+        />
+        <PrivateRoute path="/Admin/edit_admin/:id" component={EditInfomation} />
         <PrivateRoute path="/ShowStudent" component={ShowStudent} />
         <PrivateRoute path="/MUEF-TEST-101/:name" component={MenuTest} exact />
         <PrivateRoute path="/MUEF-TEST-101/:name/INH" component={INH} />

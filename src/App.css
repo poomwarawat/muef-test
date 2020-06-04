@@ -9,6 +9,46 @@
 .app-page {
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
 }
+.technicalterms-page,
+.edit-infomation-page {
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
+}
+.edit-user-admin {
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
+}
+.meaing-table {
+  background-color: white;
+}
+.edit-user-admin-component,
+.edit-infomation-component {
+  margin-top: 20px;
+  color: white;
+  padding: 30px;
+  margin-left: 20px;
+}
+.technicalterms-component {
+  margin-top: 20px;
+  color: white;
+  padding: 30px;
+  margin-left: 20px;
+}
+.process-list {
+  font-size: 20px;
+}
+.technicalterms-component hr,
+.edit-user-admin-component hr {
+  background-color: white;
+}
+.technicalterms-component h3 {
+  text-decoration: underline;
+}
+.back-to-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .logo-name {
   color: white;
 }
@@ -394,6 +434,14 @@ nav ul li {
   width: 250px;
 }
 @media (max-width: 858px) {
+  .technicalterms-component,
+  .edit-user-admin-component,
+  .edit-infomation-component {
+    margin-top: 0px;
+    color: white;
+    padding: 30px;
+    margin-left: 0px;
+  }
   .all-user-list-bg {
     height: 500px;
     width: 100%;

@@ -6,6 +6,7 @@ import CreatePDF from "../PDF/CreatePDF";
 
 const ResultText = (props) => {
   const result = props.result;
+  console.log(result);
   const INH = result[0].INH;
   const SHF = result[1].SHF;
   const EC = result[2].EC;

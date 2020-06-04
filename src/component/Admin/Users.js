@@ -1,5 +1,6 @@
 import React from "react";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Users = (props) => {
   var users = [];
@@ -16,6 +17,7 @@ const Users = (props) => {
               <th>ชื่อผู้ใช้งาน</th>
               <th>ชื่อ</th>
               <th>นามสกุล</th>
+              {props.edit && <th>แก้ไขข้อมูล</th>}
             </tr>
           </thead>
           <tbody>
@@ -27,6 +29,13 @@ const Users = (props) => {
                     <td>{user.username}</td>
                     <td>{user.fname}</td>
                     <td>{user.lname}</td>
+                    {props.edit && (
+                      <td>
+                        <Link to={`/admin/edit_admin/${user.id}`}>
+                          <Button color="danger">แก้ไข</Button>
+                        </Link>
+                      </td>
+                    )}
                   </tr>
                 );
               })}

@@ -73,6 +73,7 @@ const Header = (props) => {
     Data.append("username", login.username);
     Data.append("password", login.password);
     API.post(`/auth-sign-in`, Data).then((res) => {
+      console.log(res);
       if (res.data.error) {
         setError(res.data.error);
       }
