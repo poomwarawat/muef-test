@@ -35,8 +35,6 @@ const Header = (props) => {
   const [login, setLogin] = useState(loginInit);
   const [error, setError] = useState("");
 
-  console.log(userState);
-
   const handleLogout = () => {
     localStorage.removeItem("key");
     window.location.href = "/";

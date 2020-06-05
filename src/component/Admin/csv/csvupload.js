@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Home/Header";
-import { Container, Button, Spinner, Table } from "reactstrap";
+import { Container, Button, Spinner, Table, Alert } from "reactstrap";
 import Dropzone from "react-dropzone";
 import csv from "csv";
 import API from "../../../API/API";
@@ -12,6 +12,7 @@ const Csvupload = () => {
   const [user, setUser] = useState("");
   const [toTest, setTotest] = useState(false);
   const token = localStorage.getItem("key");
+  var color = "black";
   useEffect(() => {
     API.get(`/get-access-user/${token}`).then((res) => {
       setUser(res.data[0].username);
@@ -26,10 +27,9 @@ const Csvupload = () => {
   };
   const toUpload = () => {
     setSpinner(true);
-    console.log(newStudent.length);
     const Data = new FormData();
     for (let index = 1; index < newStudent.length; index++) {
-      // console.log(newStudent[index]);
+      console.log(newStudent[index]);
       Data.append(`newstd${index}`, newStudent[index]);
     }
     Data.append("LengthData", newStudent.length - 1);
@@ -61,6 +61,20 @@ const Csvupload = () => {
       );
     }
   };
+  const validateTime = (time) => {
+    const timeSplit = time.split("/");
+    const currentTime = new Date();
+    const currentTimeSring = `${currentTime.getUTCDay()}/${currentTime.getUTCMonth()}/${currentTime.getUTCFullYear()}`;
+    const currentTimeSplit = currentTimeSring.split("/");
+    var yearCalculator = currentTimeSplit[2] - timeSplit[2];
+    const monthCalculartor = currentTimeSplit[1] - timeSplit[1];
+    if (monthCalculartor < 0) {
+      yearCalculator -= 1;
+    }
+    if (yearCalculator > 6 || yearCalculator < 2) {
+      color = "red";
+    }
+  };
   return (
     <div className="upload-csv-page">
       <Header />
@@ -86,6 +100,9 @@ const Csvupload = () => {
             </div>
             <h5>หมายเหตุ*</h5>
             <p>กรุณาสร้างข้อมูลหรือตารางให้ตรงกับฟอร์ม</p>
+            <Alert color="danger">
+              กรุณาตรวจสอบข้อมูลในบรรทัดที่มีสีแดง (วันที่, เพศ)
+            </Alert>
             <div className="alert alert-info">
               <Dropzone
                 onDrop={(acceptedFiles) => {
@@ -137,8 +154,9 @@ const Csvupload = () => {
                 {newStudent !== null &&
                   newStudent.map((data, index) => {
                     if (index > 0) {
+                      validateTime(data[5]);
                       return (
-                        <tr key={index}>
+                        <tr style={{ color: `${color}` }} key={index}>
                           <th scope="row">Auto</th>
                           <td>{data[1]}</td>
                           <td>{data[2]}</td>
@@ -155,6 +173,7 @@ const Csvupload = () => {
                           <td>Auto</td>
                           <td>{data[14]}</td>
                           <td>{data[15]}</td>
+                          {(color = "black")}
                         </tr>
                       );
                     }

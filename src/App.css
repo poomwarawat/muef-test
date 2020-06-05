@@ -9,6 +9,13 @@
 .app-page {
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
 }
+.Instruction-page {
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
+}
+.error-table {
+  color: red;
+}
 .technicalterms-page,
 .edit-infomation-page {
   height: 100%;

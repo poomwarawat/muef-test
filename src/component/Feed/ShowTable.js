@@ -3,6 +3,7 @@ import { Table, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import EstimateBtn from "../EstimateBtn";
 import ResultBtn from "../ResultBtn";
+import EditBtn from "./EditBtn";
 
 const ShowTable = (props) => {
   return (
@@ -44,11 +45,11 @@ const ShowTable = (props) => {
                     />
                   </td>
                   <td>
-                    <Link to={`/edit/${student.codeId}`}>
-                      <Button disabled color="danger">
-                        แก้ไขข้อมูล
-                      </Button>
-                    </Link>
+                    <EditBtn
+                      codeId={student.codeId}
+                      type={props.testCode}
+                      url={`/edit-data/${student.codeId}`}
+                    />
                   </td>
                 </tr>
               );

@@ -4,7 +4,7 @@ import { Container, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 const Instruction = () => {
   return (
-    <div className="technicalterms-page">
+    <div className="Instruction-page">
       <Header />
       <Container>
         <div className="technicalterms-component">
