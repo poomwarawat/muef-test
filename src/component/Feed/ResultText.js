@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import API from "../../API/API";
 import { Row, Col, Button } from "reactstrap";
-import { Radar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import CreatePDF from "../PDF/CreatePDF";
 
 const ResultText = (props) => {
   const result = props.result;
-  console.log(result);
   const INH = result[0].INH;
   const SHF = result[1].SHF;
   const EC = result[2].EC;
@@ -16,18 +15,10 @@ const ResultText = (props) => {
   const age = result[7].birthday.year;
   const [resultText, setResultText] = useState([]);
   if (resultText.length > 0) {
-    // console.log(resultText[0]);
     var data = {
       labels: ["INH", "SHF", "EC", "WM", "PO"],
       datasets: [
         {
-          label: "คะแนนแบบประเมินชุดที่ 101 5 ด้าน",
-          backgroundColor: "rgba(255,99,132,0.2)",
-          borderColor: "rgba(255,99,132,1)",
-          pointBackgroundColor: "rgba(255,99,132,1)",
-          pointBorderColor: "#fff",
-          pointHoverBackgroundColor: "#fff",
-          pointHoverBorderColor: "rgba(255,99,132,1)",
           data: [
             resultText[0]["T_SCORE_INH"].score,
             resultText[0]["T_SCORE_SHF"].score,
@@ -35,6 +26,8 @@ const ResultText = (props) => {
             resultText[0]["T_SCORE_WM"].score,
             resultText[0]["T_SCORE_PO"].score,
           ],
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#737CA1"],
+          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#A19772"],
         },
       ],
     };
@@ -42,18 +35,13 @@ const ResultText = (props) => {
       labels: ["ISCI", "FI", "EMI"],
       datasets: [
         {
-          label: "คะแนนแบบประเมินชุดที่ 101 3 ด้าน",
-          backgroundColor: "rgba(255,99,132,0.2)",
-          borderColor: "rgba(255,99,132,1)",
-          pointBackgroundColor: "rgba(255,99,132,1)",
-          pointBorderColor: "#fff",
-          pointHoverBackgroundColor: "#fff",
-          pointHoverBorderColor: "rgba(255,99,132,1)",
           data: [
             resultText[0]["T_SCORE_ISCI"].score,
             resultText[0]["T_SCORE_FI"].score,
             resultText[0]["T_SCORE_EMI"].score,
           ],
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#737CA1"],
+          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#A19772"],
         },
       ],
     };
@@ -86,7 +74,7 @@ const ResultText = (props) => {
       </h1>
       <div className="mt-2 rada-graph">
         <div>
-          <Radar data={data} />
+          <Pie data={data} />
         </div>
       </div>
       {resultText.length !== 0 &&
@@ -161,7 +149,7 @@ const ResultText = (props) => {
         </h1>
         <div className="mt-2 rada-graph">
           <div>
-            <Radar data={data_1} />
+            <Pie data={data_1} />
           </div>
         </div>
         <Row className="topic-result mt-3">

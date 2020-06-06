@@ -12,6 +12,7 @@ const Csvupload = () => {
   const [user, setUser] = useState("");
   const [toTest, setTotest] = useState(false);
   const token = localStorage.getItem("key");
+  const errorArr = [];
   var color = "black";
   useEffect(() => {
     API.get(`/get-access-user/${token}`).then((res) => {
@@ -29,17 +30,22 @@ const Csvupload = () => {
     setSpinner(true);
     const Data = new FormData();
     for (let index = 1; index < newStudent.length; index++) {
-      console.log(newStudent[index]);
       Data.append(`newstd${index}`, newStudent[index]);
     }
     Data.append("LengthData", newStudent.length - 1);
     Data.append("username", user);
-    API.post("/admin/upload-csv-data", Data).then((res) => {
-      if (res.data.add) {
-        setSpinner(false);
-        setTotest(true);
-      }
-    });
+    console.log(errorArr);
+    if (errorArr.length > 0) {
+      setSpinner(false);
+      alert("กรุณาตรวจสอบข้อมูล");
+    } else {
+      API.post("/admin/upload-csv-data", Data).then((res) => {
+        if (res.data.add) {
+          setSpinner(false);
+          setTotest(true);
+        }
+      });
+    }
   };
 
   if (toTest === true) {
@@ -72,6 +78,7 @@ const Csvupload = () => {
       yearCalculator -= 1;
     }
     if (yearCalculator > 6 || yearCalculator < 2) {
+      errorArr.push(1);
       color = "red";
     }
   };

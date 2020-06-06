@@ -123,7 +123,7 @@ const Header = (props) => {
               <p className="nav-text">Contact</p>
             </li>
           </Link>
-          {userState === "a" ? (
+          {userState === "a" && key !== null ? (
             <Link to="/Admin" style={{ color: "white" }}>
               <li>
                 <p className="nav-text">Admin</p>

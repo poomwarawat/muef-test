@@ -48,7 +48,7 @@ const ShowTable = (props) => {
                     <EditBtn
                       codeId={student.codeId}
                       type={props.testCode}
-                      url={`/edit-data/${student.codeId}`}
+                      url={`/edit/${student.codeId}`}
                     />
                   </td>
                 </tr>

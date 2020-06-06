@@ -3,7 +3,6 @@ import { Button, Row, Col } from "reactstrap";
 import html2pdf from "html2pdf.js";
 
 const CreatePDF = (props) => {
-  console.log(props.profile);
   var gender = "";
   if (props.profile[6].gender === "male") {
     gender = "ชาย";
