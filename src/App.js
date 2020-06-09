@@ -32,6 +32,7 @@ import Instruction from "./component/Home/details/Instruction";
 import Aboutresult from "./component/Home/details/Aboutresult";
 import EdituserAdmin from "./component/Admin/EdituserAdmin";
 import EditInfomation from "./component/Admin/EditInfomation";
+import Dashboard from "./page/Dashboard";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           exact
           component={EdituserAdmin}
         />
+        <PrivateRoute path="/admin/dashboard" component={Dashboard} />
         <PrivateRoute path="/Admin/edit_admin/:id" component={EditInfomation} />
         <PrivateRoute path="/ShowStudent" component={ShowStudent} />
         <PrivateRoute path="/MUEF-TEST-101/:name" component={MenuTest} exact />
