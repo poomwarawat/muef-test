@@ -39,7 +39,6 @@ const TestingMenu2 = (props) => {
         </h3>
       )}
       <div>
-        {props.std && <Start102 std={props.std} />}
         <div className="mt-4">
           <h3>คำชี้แจง</h3>
           <p>
@@ -51,6 +50,7 @@ const TestingMenu2 = (props) => {
             กรุณากดรีเฟรซ (Refresh)
           </p>
         </div>
+        {props.std && <Start102 std={props.std} />}
         <div className="back-menu">
           <div>
             <Link to="/ShowStudent/MUEF102">
