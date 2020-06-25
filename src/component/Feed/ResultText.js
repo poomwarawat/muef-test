@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../../API/API";
-import { Row, Col, Button } from "reactstrap";
-import { Pie } from "react-chartjs-2";
+import { Row, Col } from "reactstrap";
+import { Bar } from "react-chartjs-2";
 import CreatePDF from "../PDF/CreatePDF";
 
 const ResultText = (props) => {
@@ -19,6 +19,12 @@ const ResultText = (props) => {
       labels: ["INH", "SHF", "EC", "WM", "PO"],
       datasets: [
         {
+          label: "แบบประเมิน 5 ด้าน",
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          borderWidth: 1,
+          hoverBackgroundColor: "rgba(255,99,132,0.4)",
+          hoverBorderColor: "rgba(255,99,132,1)",
           data: [
             resultText[0]["T_SCORE_INH"].score,
             resultText[0]["T_SCORE_SHF"].score,
@@ -26,8 +32,6 @@ const ResultText = (props) => {
             resultText[0]["T_SCORE_WM"].score,
             resultText[0]["T_SCORE_PO"].score,
           ],
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#737CA1"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#A19772"],
         },
       ],
     };
@@ -35,13 +39,17 @@ const ResultText = (props) => {
       labels: ["ISCI", "FI", "EMI"],
       datasets: [
         {
+          label: "แบบประเมิน 3 ด้าน",
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          borderWidth: 1,
+          hoverBackgroundColor: "rgba(255,99,132,0.4)",
+          hoverBorderColor: "rgba(255,99,132,1)",
           data: [
             resultText[0]["T_SCORE_ISCI"].score,
             resultText[0]["T_SCORE_FI"].score,
             resultText[0]["T_SCORE_EMI"].score,
           ],
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#737CA1"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#A19772"],
         },
       ],
     };
@@ -74,7 +82,35 @@ const ResultText = (props) => {
       </h1>
       <div className="mt-2 rada-graph">
         <div>
-          <Pie data={data} />
+          <Bar
+            data={data}
+            width={10}
+            height={300}
+            options={{
+              maintainAspectRatio: false,
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      beginAtZero: true,
+                    },
+                  },
+                ],
+              },
+              tooltips: {
+                displayColors: false,
+                titleFontSize: 16,
+                bodyFontSize: 14,
+                xPadding: 10,
+                yPadding: 10,
+                callbacks: {
+                  label: (tooltipItem, data) => {
+                    return `${tooltipItem.value}`;
+                  },
+                },
+              },
+            }}
+          />
         </div>
       </div>
       {resultText.length !== 0 &&
@@ -149,7 +185,35 @@ const ResultText = (props) => {
         </h1>
         <div className="mt-2 rada-graph">
           <div>
-            <Pie data={data_1} />
+            <Bar
+              data={data_1}
+              width={10}
+              height={300}
+              options={{
+                maintainAspectRatio: false,
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true,
+                      },
+                    },
+                  ],
+                },
+                tooltips: {
+                  displayColors: false,
+                  titleFontSize: 16,
+                  bodyFontSize: 14,
+                  xPadding: 10,
+                  yPadding: 10,
+                  callbacks: {
+                    label: (tooltipItem, data) => {
+                      return `${tooltipItem.value}`;
+                    },
+                  },
+                },
+              }}
+            />
           </div>
         </div>
         <Row className="topic-result mt-3">

@@ -121,7 +121,13 @@ nav ul li {
   display: none;
   z-index: 1;
 }
-@media (max-width: 952px) {
+@media (max-width: 667px) {
+  label.logo {
+    font-size: 27px;
+    padding: 0px;
+  }
+}
+@media (max-width: 999px) {
   label.logo {
     font-size: 27px;
     padding-left: 25px;
@@ -258,7 +264,7 @@ nav ul li {
 }
 .Show-Student {
   width: 100%;
-  height: 110vh;
+  height: 100%;
   padding-bottom: 100px;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
 }
@@ -360,7 +366,7 @@ nav ul li {
 }
 .start-testing {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   color: white;
   background-image: linear-gradient(to bottom right, #74a4d4, #3f6d9b);
 }
@@ -463,6 +469,7 @@ nav ul li {
     padding: 30px;
     margin-left: 0px;
   }
+
   .all-user-list-bg {
     height: 500px;
     width: 100%;
@@ -525,7 +532,7 @@ nav ul li {
     margin-top: 0;
   }
   .About {
-    margin-top: 40px;
+    margin-top: 80px;
   }
   .start-content {
     padding: 30px;

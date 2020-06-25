@@ -29,7 +29,6 @@ const QuestionBox = (props) => {
         <Tooltip
           placement="top"
           isOpen={tooltipOpen}
-          autohide={false}
           target="DisabledAutoHideExample"
           toggle={toggle}
         >

@@ -110,23 +110,23 @@ const Header = (props) => {
         <ul>
           <Link to="/" style={{ color: "white" }}>
             <li>
-              <p className="nav-text">Home</p>
+              <p className="nav-text">หน้าหลัก</p>
             </li>
           </Link>
           <Link to="/about" style={{ color: "white" }}>
             <li>
-              <p className="nav-text">About</p>
+              <p className="nav-text">เกี่ยวกับ</p>
             </li>
           </Link>
           <Link to="/contact" style={{ color: "white" }}>
             <li>
-              <p className="nav-text">Contact</p>
+              <p className="nav-text">ติดต่อ</p>
             </li>
           </Link>
           {userState === "a" && key !== null ? (
             <Link to="/Admin" style={{ color: "white" }}>
               <li>
-                <p className="nav-text">Admin</p>
+                <p className="nav-text">ผู้ดูแล</p>
               </li>
             </Link>
           ) : null}
