@@ -1,8 +1,11 @@
-import React from "react";
-import { Button, Row, Col } from "reactstrap";
+import React, { useEffect } from "react";
+import { Button, Table } from "reactstrap";
 import html2pdf from "html2pdf.js";
+import { Bar } from "react-chartjs-2";
 
 const CreatePDF = (props) => {
+  const { graph3, graph2 } = props;
+  console.log(graph3, graph2);
   var gender = "";
   if (props.profile[6].gender === "male") {
     gender = "ชาย";
@@ -12,87 +15,118 @@ const CreatePDF = (props) => {
   const profile = props.profile;
   const pdfGenerator = () => {
     const content = `<div id="pdf-generator">
-    <h1>รายงานผลการประเมินชุดที่ ${props.code}</h1>
+    <p id="topicpdf">
+      รายงานผลการประเมินพัฒนาการ MU.EF ชุดที่ ${props.code}
+    </p>
     <p>ข้อมูลนักเรียน</p>
     <hr />
-    <div id="row-data">
-      <div>
-        <p>ชื่อ : ${profile[8].firstname}</p>
-      </div>
-      <div>
-        <p>นามสกุล : ${profile[9].lastname}</p>
-      </div>      
-      <div>
-        <p>เพศ : ${gender}</p>
-      </div>
-    </div>
-    <div id="row-data">
-      <div>
-        <p>วันเกิด : ${profile[11].birthdayDate}</p>
-      </div>
-      <div>
-        <p>อายุ : ${profile[7].birthday.year}ปี</p>
-      </div>
-      <div>
-        <p>โรงเรียน : ${profile[13].schoolname}</p>
-      </div>
-      <div>
-        <p>จังหวัด : ${profile[14].province}</p>
-      </div>
+    <table>
+        <thead  id="colortableheade">
+          <tr>
+            <th  id="colortable">ชื่อ</th>
+            <th id="colortable">นามสกุล</th>
+            <th id="colortable">เพศ</th>
+            <th id="colortable">วันเกิด</th>
+            <th id="colortable">อายุ</th>
+            <th id="colortable">โรงเรียน</th>
+            <th id="colortable">จังหวัด</th>
+          </tr>
+        </thead>
+        <tbody  id="colortable">
+          <tr>
+            <td  id="colortable">${profile[8].firstname}</td>
+            <td id="colortable">
+            ${profile[9].lastname}             
+            </td>
+            <td id="colortable">${gender}</td>
+            <td id="colortable">
+            ${profile[11].birthdayDate}          
+            </td>
+            <td id="colortable">
+            ${profile[7].birthday.year}        
+            </td>
+            <td id="colortable">
+            ${profile[13].schoolname}          
+            </td>
+            <td id="colortable">
+            ${profile[14].province}           
+            </td>            
+          </tr>          
+        </tbody>
+      </table>    
+    <hr />
+    <div>
+    <p id="topicpdf">ผลการประเมิน</p>
+      <table>
+        <thead  id="colortableheade">
+          <tr>
+            <th  id="colortable">หัวข้อ</th>
+            <th>ผลการประเมิน</th>
+          </tr>
+        </thead>
+        <tbody  id="colortable">
+          <tr>
+            <td  id="colortable">การหยุด การยับยั้งพฤติกรรม (Inhibitory control)</td>
+            <td>
+              ${props.result["T_SCORE_INH"].resultText[0]} 
+              ${props.result["T_SCORE_INH"].resultText[1]} 
+              ${props.result["T_SCORE_INH"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td  id="colortable">
+              การเปลี่ยน/ความยืดหยุ่นในการคิด (Shift/Cognitive flexibility)
+            </td>
+            <td>
+              ${props.result["T_SCORE_SHF"].resultText[0]} 
+              ${props.result["T_SCORE_SHF"].resultText[1]} 
+              ${props.result["T_SCORE_SHF"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td  id="colortable">การควบคุมอารมณ์ (Emotional control)</td>
+            <td>
+              ${props.result["T_SCORE_EC"].resultText[0]} 
+              ${props.result["T_SCORE_EC"].resultText[1]} 
+              ${props.result["T_SCORE_EC"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td  id="colortable">ความจำขณะทำงาน (Working memory)</td>
+            <td>
+              ${props.result["T_SCORE_WM"].resultText[0]} 
+              ${props.result["T_SCORE_WM"].resultText[1]} 
+              ${props.result["T_SCORE_WM"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td id="colortable">การวางแผนจัดการ (Plan/Organize)</td>
+            <td>
+              ${props.result["T_SCORE_PO"].resultText[0]} 
+              ${props.result["T_SCORE_PO"].resultText[1]} 
+              ${props.result["T_SCORE_PO"].resultText[2]}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <hr />
     <div>
-      <h1>ผลการประเมิน</h1>
-      <div id="pdf-result">
-        <div>
-          <h3>การหยุด การยับยั้งพฤติกรรม (Inhibitory control)</h3>
-          <p>
-            ${props.result["T_SCORE_INH"].resultText[0]} ${props.result["T_SCORE_INH"].resultText[1]} ${props.result["T_SCORE_INH"].resultText[2]}
-          </p>
-        </div>
-        <div>
-          <h3>
-            การเปลี่ยน/ความยืดหยุ่นในการคิด (Shift/Cognitive flexibility)
-          </h3>
-          <p>
-          ${props.result["T_SCORE_SHF"].resultText[0]} ${props.result["T_SCORE_SHF"].resultText[1]} ${props.result["T_SCORE_SHF"].resultText[2]}
-          </p>
-        </div>
-        <div>
-          <h3>การควบคุมอารมณ์ (Emotional control)</h3>
-          <p>
-          ${props.result["T_SCORE_EC"].resultText[0]} ${props.result["T_SCORE_EC"].resultText[1]} ${props.result["T_SCORE_EC"].resultText[2]}
-          </p>
-        </div>
-        <div>
-          <h3>ความจำขณะทำงาน (Working memory)</h3>
-          <p>
-          ${props.result["T_SCORE_WM"].resultText[0]} ${props.result["T_SCORE_WM"].resultText[1]} ${props.result["T_SCORE_WM"].resultText[2]}
-          </p>
-        </div>
-        <div>
-          <h3>การวางแผนจัดการ (Plan/Organize)</h3>
-          <p>
-          ${props.result["T_SCORE_PO"].resultText[0]} ${props.result["T_SCORE_PO"].resultText[1]} ${props.result["T_SCORE_PO"].resultText[2]}
-          </p>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div>
-      <h1>สรุปผลการประเมิน</h1>
+    <p id="topicpdf">สรุปผลการประเมิน</p>
       <p>
-      ${props.result["T_SCORE_GEC"].resultText[0]} ${props.result["T_SCORE_GEC"].resultText[1]} ${props.result["T_SCORE_GEC"].resultText[2]}
+        ${props.result["T_SCORE_GEC"].resultText[0]} 
+        ${props.result["T_SCORE_GEC"].resultText[1]} 
+        ${props.result["T_SCORE_GEC"].resultText[2]}
       </p>
     </div>
-    <hr/>
+    <hr />
     <a href="#">www.muef-testing.com</a>
   </div>`;
 
     const opt = {
-      margin: 0.3,
+      margin: 0.75,
       filename: "result_pdf.pdf",
-      image: { type: "jpeg", quality: 1 },
+      image: { type: "png", quality: 4 },
       html2canvas: { scale: 1 },
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };

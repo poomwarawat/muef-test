@@ -12,8 +12,8 @@ const Home = () => {
       <div className="home-content">
         <Header />
         <Content />
-        <About />
         <Know />
+        <About />
         <Contact />
         <Footer />
       </div>

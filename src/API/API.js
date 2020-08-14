@@ -1,9 +1,6 @@
 import axios from "axios";
 
-const serverArr = [
-  "https://muef-testv2.herokuapp.com/",
-  "https://muef-testv2.herokuapp.com/",
-];
+const serverArr = ["http://localhost:4000", "http://localhost:4000"];
 var url = "";
 
 function randomserver() {

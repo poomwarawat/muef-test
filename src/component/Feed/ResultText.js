@@ -17,6 +17,9 @@ const ResultText = (props) => {
   if (resultText.length > 0) {
     var data = {
       labels: ["INH", "SHF", "EC", "WM", "PO"],
+      chartArea: {
+        backgroundColor: "rgba(251, 85, 85, 0.4)",
+      },
       datasets: [
         {
           label: "แบบประเมิน 5 ด้าน",
@@ -76,10 +79,10 @@ const ResultText = (props) => {
   }, []);
   return (
     <div>
-      <h1>
+      <h3>
         เด็กมีคะแนนพัฒนาการทักษะด้านการคิดเชิงบริหาร (EF) แยกรายด้าน 5
         ด้านดังนี้
-      </h1>
+      </h3>
       <div className="mt-2 rada-graph">
         <div>
           <Bar
@@ -119,10 +122,10 @@ const ResultText = (props) => {
             <div className="mt-3" key={index}>
               <Row className="topic-result">
                 <Col md={6}>
-                  <h3 className="topic-result">หัวข้อ</h3>
+                  <h5 className="topic-result">หัวข้อ</h5>
                 </Col>
                 <Col md={6}>
-                  <h3 className="topic-result">ผลประเมิน</h3>
+                  <h5 className="topic-result">ผลประเมิน</h5>
                 </Col>
               </Row>
               <Row>
@@ -179,10 +182,10 @@ const ResultText = (props) => {
           );
         })}
       <div>
-        <h1>
+        <h3>
           เด็กมีคะแนนตัวบ่งชี้
           พัฒนาการด้านพฤติกรรมที่ส่งผลต่อการกำกับตนเองไปสู่เป้าหมาย ดังนี้
-        </h1>
+        </h3>
         <div className="mt-2 rada-graph">
           <div>
             <Bar
@@ -218,10 +221,10 @@ const ResultText = (props) => {
         </div>
         <Row className="topic-result mt-3">
           <Col md={6}>
-            <h3 className="topic-result">หัวข้อ</h3>
+            <h5 className="topic-result">หัวข้อ</h5>
           </Col>
           <Col md={6}>
-            <h3 className="topic-result">ผลประเมิน</h3>
+            <h5 className="topic-result">ผลประเมิน</h5>
           </Col>
         </Row>
         <Row>
@@ -262,21 +265,31 @@ const ResultText = (props) => {
       </div>
       <div>
         <div className="text-center mt-2">
-          <h1>สรุปผลประเมิน</h1>
+          <h3>สรุปผลประเมิน</h3>
         </div>
         <Row>
-          <Col md={6}>
+          <Col md={12}>
             {resultText.length > 0 && (
               <div>
-                <p>{resultText[0]["T_SCORE_GEC"]["resultText"][1]} </p>
-                <p>{resultText[0]["T_SCORE_GEC"]["resultText"][2]} </p>
+                {console.log(resultText[0]["T_SCORE_GEC"]["resultText"])}
+                <p>
+                  {resultText[0]["T_SCORE_GEC"]["resultText"][0]}{" "}
+                  {resultText[0]["T_SCORE_GEC"]["resultText"][1]}{" "}
+                  {resultText[0]["T_SCORE_GEC"]["resultText"][2]}
+                </p>
               </div>
             )}
           </Col>
         </Row>
       </div>
       {resultText.length > 0 && (
-        <CreatePDF result={resultText[0]} profile={result} code={props.code} />
+        <CreatePDF
+          result={resultText[0]}
+          profile={result}
+          code={props.code}
+          graph1={data}
+          graph2={data_1}
+        />
       )}
     </div>
   );

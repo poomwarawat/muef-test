@@ -6,12 +6,12 @@ const Know = () => {
   return (
     <div className="know" data-aos="fade-down" data-aos-duration="2500">
       <Container>
-        <h1>สิ่งที่ควรทราบ</h1>
+        <h3>สิ่งที่ควรทราบ</h3>
         <hr />
-        <h3>
+        <h5>
           -
           สิ่งที่คุณครูหรือผู้ปกครองควรทราบก่อนการทำแบบประเมินด้านการคิดเชิงบริหาร
-        </h3>
+        </h5>
         <Row className="know-center mt-4">
           <Col sm="4">
             <img

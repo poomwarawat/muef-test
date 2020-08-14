@@ -5,9 +5,9 @@ const Contact = () => {
   return (
     <div className="contact" data-aos="fade-down" data-aos-duration="2500">
       <Container>
-        <h1>ติดต่อเรา</h1>
+        <h3>ติดต่อเรา</h3>
         <hr />
-        <h3>ถ้ามีข้อสงสัยเกี่ยวกับแบบประเมินนี้ ติดต่อเราได้ที่ : </h3>
+        <h5>ถ้ามีข้อสงสัยเกี่ยวกับแบบประเมินนี้ ติดต่อเราได้ที่ : </h5>
         <Row className="mt-4">
           <Col sm="4">
             <p>รองศาสตราจารย์ ดร. นวลจันทร์ จุฑาภักดีกุล</p>
@@ -21,7 +21,7 @@ const Contact = () => {
             <p>nuanchan.chu@mahidol.edu</p>
             <p>Website</p>
             <p>
-              <a href="https://mb.mahidol.ac.th/en/admissions/neuroscience.html">
+              <a href="https://mb.mahidol.ac.th/th/neuroscience/">
                 Neuroscience - Mahidol
               </a>
             </p>

@@ -29,12 +29,12 @@ const Csvupload = () => {
   const toUpload = () => {
     setSpinner(true);
     const Data = new FormData();
+    console.log(newStudent.length);
     for (let index = 1; index < newStudent.length; index++) {
       Data.append(`newstd${index}`, newStudent[index]);
     }
+    Data.append("username", "test");
     Data.append("LengthData", newStudent.length - 1);
-    Data.append("username", user);
-    console.log(errorArr);
     if (errorArr.length > 0) {
       setSpinner(false);
       alert("กรุณาตรวจสอบข้อมูล");
@@ -81,6 +81,10 @@ const Csvupload = () => {
       errorArr.push(1);
       color = "red";
     }
+  };
+
+  const setColor = () => {
+    color = "black";
   };
   return (
     <div className="upload-csv-page">
@@ -180,7 +184,7 @@ const Csvupload = () => {
                           <td>Auto</td>
                           <td>{data[14]}</td>
                           <td>{data[15]}</td>
-                          {(color = "black")}
+                          {setColor()}
                         </tr>
                       );
                     }

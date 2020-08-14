@@ -5,7 +5,9 @@ import { Col, Row, FormGroup, Label, Input, Alert, Tooltip } from "reactstrap";
 const QuestionBox = (props) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   // const [score, setScore] = useState(props.initStateINH)
-
+  const mode = props.mode;
+  const index = props.index;
+  const keytoolips = `${mode}${index}`;
   const toggle = () => setTooltipOpen(!tooltipOpen);
 
   const handleChange = (e) => {
@@ -20,18 +22,19 @@ const QuestionBox = (props) => {
   return (
     <div>
       <Alert color="light">
-        <h3>
+        <h5 style={{ color: "#333333" }}>
           {props.question.question}{" "}
-          <span className="toolip-question" id="DisabledAutoHideExample">
+          <span className="toolip-question" id={keytoolips}>
             เพิ่มเติม.
           </span>
-        </h3>
+        </h5>
         <Tooltip
           placement="top"
           isOpen={tooltipOpen}
-          target="DisabledAutoHideExample"
+          target={keytoolips}
           toggle={toggle}
         >
+          {console.log(props)}
           {props.question.toolips}
         </Tooltip>
         <Row className="mt-4">
@@ -45,7 +48,7 @@ const QuestionBox = (props) => {
                   name={`${props.index}${props.mode}`}
                   value={0}
                 />{" "}
-                ไม่เคย
+                <p style={{ color: "#333333" }}>ไม่เคย</p>
               </Label>
             </FormGroup>
           </Col>
@@ -59,7 +62,7 @@ const QuestionBox = (props) => {
                   name={`${props.index}${props.mode}`}
                   value={1}
                 />{" "}
-                1-2 ครั้ง/เดือน
+                <p style={{ color: "#333333" }}>1-2 ครั้ง/เดือน</p>
               </Label>
             </FormGroup>
           </Col>
@@ -73,7 +76,7 @@ const QuestionBox = (props) => {
                   name={`${props.index}${props.mode}`}
                   value={2}
                 />{" "}
-                1-2 ครั้ง/สัปดาห์
+                <p style={{ color: "#333333" }}>1-2 ครั้ง/สัปดาห์</p>
               </Label>
             </FormGroup>
           </Col>
@@ -87,7 +90,7 @@ const QuestionBox = (props) => {
                   name={`${props.index}${props.mode}`}
                   value={3}
                 />{" "}
-                3-4 ครั้ง/สัปดาห์
+                <p style={{ color: "#333333" }}>3-4 ครั้ง/สัปดาห์</p>
               </Label>
             </FormGroup>
           </Col>
@@ -101,7 +104,7 @@ const QuestionBox = (props) => {
                   name={`${props.index}${props.mode}`}
                   value={4}
                 />{" "}
-                ทุกวัน
+                <p style={{ color: "#333333" }}>ทุกวัน</p>
               </Label>
             </FormGroup>
           </Col>

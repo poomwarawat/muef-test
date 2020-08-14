@@ -18,7 +18,7 @@ const OutputResult = (props) => {
     <div className="result-output">
       {results && (
         <div>
-          <h1>ข้อมูลนักเรียน</h1>
+          <h3>ข้อมูลนักเรียน</h3>
           <Row>
             <Col md={3}>
               <p>
@@ -46,7 +46,7 @@ const OutputResult = (props) => {
               <p>วันที่ประเมิน : {results[12].create}</p>
             </Col>
           </Row>
-          <h1>คะแนนการทำแบบทดสอบ</h1>
+          <h3>คะแนนการทำแบบทดสอบ</h3>
           <div className="mt-3">
             <p>
               การหยุด การยับยั้งพฤติกรรม (Inhibitory control) : {results[0].INH}{" "}

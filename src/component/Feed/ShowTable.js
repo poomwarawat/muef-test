@@ -8,7 +8,7 @@ import EditBtn from "./EditBtn";
 const ShowTable = (props) => {
   return (
     <div>
-      <h1>รายชื่อนักเรียนที่กรอกข้อมูลแบบฟอร์ม MU.EF {props.testCode}</h1>
+      <h3>รายชื่อนักเรียนที่กรอกข้อมูลแบบฟอร์ม MU.EF {props.testCode}</h3>
       <div className="table-bg">
         <Table>
           <thead>

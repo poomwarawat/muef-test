@@ -33,9 +33,9 @@ const Admin = () => {
                   เพิ่มข้อมูลนักเรียน
                 </Button>
               </Link>
-              <Button disabled className="mt-1 mr-2" color="primary">
+              {/* <Button disabled className="mt-1 mr-2" color="primary">
                 เพิ่มข้อมูลคุณครู
-              </Button>
+              </Button> */}
               <Link to="/Admin/edit_admin">
                 <Button className="mr-2 mt-1" color="primary">
                   แก้ไขข้อมูลผู้ใช้งาน
@@ -44,20 +44,22 @@ const Admin = () => {
               <p className="mt-2">อัพโหลดข้อมูล</p>
               <Link to="/Admin/upload-csv">
                 <Button className="mr-2 mt-1" color="primary">
-                  อัพโหลดข้อมูลนักเรียนผ่าน csv
+                  อัพโหลดข้อมูลนักเรียนผ่าน csv / xlsx
                 </Button>
               </Link>
-              <Button disabled className="mt-1" color="primary">
+              {/* <Button disabled className="mt-1" color="primary">
                 อัพโหลดข้อมูลรักเรียนผ่าน xlsx
-              </Button>
+              </Button> */}
             </div>
-            <hr />
+            {/* <hr />
             <div>
               <h3>Dashboard</h3>
               <Link to="/admin/dashboard">
-                <Button color="primary">Dashboard</Button>
+                <Button disabled color="primary">
+                  Dashboard
+                </Button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>

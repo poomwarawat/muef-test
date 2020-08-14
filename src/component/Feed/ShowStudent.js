@@ -27,7 +27,7 @@ const ShowStudent = () => {
     <Suspense fallback={<SpinComp />}>
       <div className="testing-type">
         <Container>
-          <h1>ประเมินแบบทดสอบ</h1>
+          <h3>ประเมินแบบทดสอบ</h3>
           <Row>
             <Col md="12" xs="12">
               <Link to="/ShowStudent/MUEF101">
