@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "103.86.48.136:443",
+  baseURL: "http://service.mu-ef.com",
 });
 
 // https://muef-testv2.herokuapp.com/
