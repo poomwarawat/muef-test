@@ -11,7 +11,7 @@ function randomserver() {
 randomserver();
 
 export default axios.create({
-  baseURL: `${url}`,
+  baseURL: "http://localhost:4000",
 });
 
 // https://muef-testv2.herokuapp.com/
