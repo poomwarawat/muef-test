@@ -8,17 +8,17 @@ import store from "./store/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 AOS.init();
 
 ReactDOM.render(
   // <React.StrictMode></React.StrictMode>
-  <Router>
+  <HashRouter basename="/">
     <Provider store={store}>
       <App className="all-page" />
     </Provider>
-  </Router>,
+  </HashRouter>,
   document.getElementById("root")
 );
 
