@@ -53,7 +53,7 @@ const Admin = () => {
             </div>
             <hr />
             <div>
-              <h3>Dashboard</h3>
+              <h3>รายงานผล</h3>
               <Link to="/admin/report">
                 <Button color="primary">รายงาน</Button>
               </Link>
