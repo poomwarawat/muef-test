@@ -51,15 +51,13 @@ const Admin = () => {
                 อัพโหลดข้อมูลรักเรียนผ่าน xlsx
               </Button> */}
             </div>
-            {/* <hr />
+            <hr />
             <div>
               <h3>Dashboard</h3>
-              <Link to="/admin/dashboard">
-                <Button disabled color="primary">
-                  Dashboard
-                </Button>
+              <Link to="/admin/report">
+                <Button color="primary">รายงาน</Button>
               </Link>
-            </div> */}
+            </div>
           </div>
         </Container>
       </div>

@@ -33,6 +33,7 @@ import Aboutresult from "./component/Home/details/Aboutresult";
 import EdituserAdmin from "./component/Admin/EdituserAdmin";
 import EditInfomation from "./component/Admin/EditInfomation";
 import Dashboard from "./page/Dashboard";
+import Report from "./page/Report";
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
         <PrivateRoute path="/Admin/teacher-list" component={StudentList} />
         <PrivateRoute path="/Admin/upload-csv" component={Csvupload} />
         <PrivateRoute path="/edit/:id/" component={Edit} />
+        <PrivateRoute path="/Admin/report" component={Report} />
         <Route path="*" exact={true} component={NotFound} />
       </Switch>
     </div>
