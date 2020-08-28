@@ -79,7 +79,6 @@ function App() {
         <PrivateRoute path="/Admin/teacher-list" component={StudentList} />
         <PrivateRoute path="/Admin/upload-csv" component={Csvupload} />
         <PrivateRoute path="/edit/:id/" component={Edit} />
-        <PrivateRoute path="/Admin/report" component={Report} />
         <Route path="*" exact={true} component={NotFound} />
       </Switch>
     </div>

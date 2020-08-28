@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../component/Home/Header";
 import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import CreateReport from "../component/PDF/CreateReport";
 
 const Admin = () => {
   return (
@@ -54,9 +55,7 @@ const Admin = () => {
             <hr />
             <div>
               <h3>รายงานผล</h3>
-              <Link to="/admin/report">
-                <Button color="primary">รายงาน</Button>
-              </Link>
+              <CreateReport />
             </div>
           </div>
         </Container>

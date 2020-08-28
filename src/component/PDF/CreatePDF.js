@@ -5,7 +5,7 @@ import { Bar } from "react-chartjs-2";
 
 const CreatePDF = (props) => {
   const { graph3, graph2 } = props;
-  console.log(graph3, graph2);
+
   var gender = "";
   if (props.profile[6].gender === "male") {
     gender = "ชาย";
@@ -55,8 +55,8 @@ const CreatePDF = (props) => {
         </tbody>
       </table>    
     <hr />
-    <div>
-    <p id="topicpdf">ผลการประเมิน</p>
+    <div>    
+      <p id="topicpdf">ผลการประเมิน 5 ด้าน</p>
       <table>
         <thead  id="colortableheade">
           <tr>
@@ -109,6 +109,43 @@ const CreatePDF = (props) => {
           </tr>
         </tbody>
       </table>
+      <p id="topicpdf">ผลการประเมิน 3 ด้าน</p>
+      <table>
+        <thead  id="colortableheade">
+          <tr>
+            <th  id="colortable">หัวข้อ</th>
+            <th>ผลการประเมิน</th>
+          </tr>
+        </thead>
+        <tbody  id="colortable">
+          <tr>
+            <td  id="colortable">ด้านการยับยั้งควบคุมตนเอง (Inhibitory Self-Control)</td>
+            <td>
+              ${props.result["T_SCORE_ISCI"].resultText[0]} 
+              ${props.result["T_SCORE_ISCI"].resultText[1]} 
+              ${props.result["T_SCORE_ISCI"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td  id="colortable">
+            ด้านการคิดยืดหยุ่น (Cognitive Flexibility)
+            </td>
+            <td>
+              ${props.result["T_SCORE_FI"].resultText[0]} 
+              ${props.result["T_SCORE_FI"].resultText[1]} 
+              ${props.result["T_SCORE_FI"].resultText[2]}
+            </td>
+          </tr>
+          <tr  id="colortable">
+            <td  id="colortable">ด้านพุทธิปัญญา (Metacognition)</td>
+            <td>
+              ${props.result["T_SCORE_EMI"].resultText[0]} 
+              ${props.result["T_SCORE_EMI"].resultText[1]} 
+              ${props.result["T_SCORE_EMI"].resultText[2]}
+            </td>
+          </tr>          
+        </tbody>
+      </table>
     </div>
     <hr />
     <div>
@@ -120,15 +157,22 @@ const CreatePDF = (props) => {
       </p>
     </div>
     <hr />
-    <a href="#">www.muef-testing.com</a>
+    <a href="#">https://mu-ef.com</a>
   </div>`;
 
     const opt = {
-      margin: 0.75,
-      filename: "result_pdf.pdf",
+      margin: 10,
+      filename: `${profile[8].firstname}_result`,
       image: { type: "png", quality: 4 },
       html2canvas: { scale: 1 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      // jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      jsPDF: {
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        putOnlyUsedFonts: true,
+        floatPrecision: 16, // or "smart", default is 16
+      },
     };
 
     // Save the PDF
@@ -139,6 +183,7 @@ const CreatePDF = (props) => {
       <Button onClick={pdfGenerator} color="primary">
         Download PDF
       </Button>
+      {console.log(props)}
     </div>
   );
 };
