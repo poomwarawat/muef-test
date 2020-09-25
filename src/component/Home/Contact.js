@@ -21,17 +21,10 @@ const Contact = () => {
             <p>nuanchan.chu@mahidol.edu</p>
             <p>Website</p>
             <p>
-              <a href="https://mb.mahidol.ac.th/th/neuroscience/">
+              <a href="https://mb.mahidol.ac.th/th/mu-ef-101-102/?fbclid=IwAR3nsSYRPcGcP0yGYCdd11K6URYfJBvvXH6i5Bbi3oNoVjBmEGb5Uj2aRPY">
                 Neuroscience - Mahidol
               </a>
             </p>
-          </Col>
-          <Col>
-            <p>Line QR code</p>
-            <img
-              className="line-qr"
-              src="http://test.challenge-cognition.com/MU-EF-home/img/logo/LineId.jpg"
-            />
           </Col>
         </Row>
       </Container>

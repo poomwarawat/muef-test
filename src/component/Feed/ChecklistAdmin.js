@@ -51,7 +51,44 @@ const ChecklistAdmin = (props) => {
       }
     });
   }, []);
-
+  const configCalendar = () => {
+    const config = document.getElementsByClassName(
+      "react-datepicker__current-month"
+    )[0];
+    let fChild = config.innerHTML;
+    fChild = fChild.split(" ");
+    const month = fChild[0];
+    const year = fChild[1];
+    console.log(month);
+    let monthTH;
+    if (month === "January") {
+      monthTH = "มกราคม ";
+    } else if (month === "February") {
+      monthTH = "กุมภาพันธ์ ";
+    } else if (month === "March") {
+      monthTH = "มีนาคม ";
+    } else if (month === "April") {
+      monthTH = "เมษายน ";
+    } else if (month === "May") {
+      monthTH = "พฤษภาคม ";
+    } else if (month === "June") {
+      monthTH = "มิถุนายน ";
+    } else if (month === "July") {
+      monthTH = "กรกฎาคม ";
+    } else if (month === "August") {
+      monthTH = "สิงหาคม ";
+    } else if (month === "September") {
+      monthTH = "กันยายน ";
+    } else if (month === "October") {
+      monthTH = "ตุลาคม ";
+    } else if (month === "November") {
+      monthTH = "พฤศจิกายน ";
+    } else if (month === "December") {
+      monthTH = "ธันวาคม ";
+    }
+    const resultText = monthTH + `${parseInt(year) + 543}`;
+    config.innerHTML = resultText;
+  };
   const handleChange = (e) => {
     const name = e.target.id;
     const value = e.target.value;
@@ -190,6 +227,9 @@ const ChecklistAdmin = (props) => {
                   placeholderText="dd/mm/yy"
                   selected={student.birthday}
                   onChange={handleChangeDate}
+                  onCalendarOpen={configCalendar}
+                  onMonthChange={configCalendar}
+                  onYearChange={configCalendar}
                 />
               </FormGroup>
             </Col>

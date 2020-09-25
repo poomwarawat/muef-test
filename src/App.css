@@ -254,9 +254,9 @@ nav ul li {
   background-color: #74a4d4;
   height: 450px;
 }
+
 .footer-img {
-  width: 180px;
-  height: 100%;
+  height: 50%;
   object-fit: cover;
 }
 .copy-right {
